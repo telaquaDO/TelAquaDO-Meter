@@ -1,0 +1,12 @@
+# Vercel serves this site as plain static files.
+# server.js / index.js are only for Hostinger (Express); if Vercel sees them it
+# runs Express as a function and every CSS/JS/image request returns index.html.
+server.js
+index.js
+node_modules
+_backup_before_apple_redesign
+razorpay-test
+scripts
+tools
+*.md
+System.Drawing.Bitmap
