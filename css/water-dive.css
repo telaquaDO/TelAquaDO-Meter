@@ -1,0 +1,381 @@
+/*
+ * Water dive — frame scrub + Why It Matters callouts
+ *
+ * Continuity with Dismantle (same pattern as Product → Dismantle):
+ *  - margin-top:-100vh pulls this stage under the live dismantle pin
+ *  - ScrollTrigger starts at dismantle-story.end and pins the stage in place
+ *  - No slide-up entrance animation on this section
+ */
+.water-dive{
+  --wd-navy:#0A2D63;
+  --wd-teal:#28bcbf;
+  --wd-orange:#FF6A13;
+  --wd-card:#16181d;
+  --wd-muted:#A8B0BC;
+  --wd-font:var(--font);
+  position:relative;
+  z-index:3;
+  width:100%;
+  margin:0;
+  padding:0;
+  background:transparent;
+  font-family:var(--wd-font);
+  isolation:isolate;
+}
+
+/* Pull under dismantle’s last pinned viewport — prevents in-flow “slide up” */
+.product-dismantle-region + .water-dive{
+  margin-top:-100vh;
+}
+
+@supports (height:100dvh){
+  .product-dismantle-region + .water-dive{
+    margin-top:-100dvh;
+  }
+}
+
+.water-dive.is-active{
+  z-index:6;
+}
+
+.water-dive-pin{
+  position:relative;
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:100vh;
+  min-height:100dvh;
+  overflow:hidden;
+  background:transparent;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+.water-dive-bridge,
+.water-dive-canvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-select:none;
+  /* Hidden until handoff — prevents a second meter under dismantle (-100vh overlap) */
+  opacity:0;
+  visibility:hidden;
+  transform:none;
+  transition:none;
+  animation:none;
+}
+
+.water-dive-bridge{
+  z-index:1;
+  object-fit:cover;
+  object-position:center center;
+}
+
+.water-dive-bridge.is-shown{
+  opacity:1;
+  visibility:visible;
+}
+
+.water-dive-canvas{
+  z-index:2;
+  background:transparent;
+}
+
+.water-dive-canvas.is-ready{
+  opacity:1;
+  visibility:visible;
+}
+
+/* Entire stage inert until ScrollTrigger handoff (no slide-in of a second meter) */
+.water-dive:not(.is-active) .water-dive-pin{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.water-dive.is-active .water-dive-pin{
+  opacity:1;
+  visibility:visible;
+}
+
+.water-dive-callouts{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+}
+
+.water-dive-callouts.is-visible{
+  opacity:1;
+  visibility:visible;
+}
+
+.water-dive-heading{
+  position:absolute;
+  top:clamp(16px, 3.5vh, 36px);
+  left:50%;
+  transform:translateX(-50%);
+  margin:0;
+  padding:0 16px;
+  width:max-content;
+  max-width:min(92vw, 420px);
+  text-align:center;
+  color:var(--wd-navy);
+  font-size:clamp(1.35rem, 3.2vw, 2.15rem);
+  font-weight:700;
+  line-height:1.15;
+  letter-spacing:-0.02em;
+  opacity:0;
+  transform:translateX(-50%) translateY(12px);
+  will-change:opacity,transform;
+}
+
+.water-dive-heading.is-in,
+.water-dive-callouts.is-visible .water-dive-heading{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+  transition:opacity 0.35s ease, transform 0.35s ease;
+}
+
+.water-dive-heading .water-testing-heading-line,
+.water-dive-heading-line{
+  display:block;
+  color:var(--wd-navy);
+}
+
+.water-dive-heading .water-testing-heading-accent,
+.water-dive-heading-accent{
+  font-style:normal;
+  color:var(--wd-teal);
+}
+
+.wd-callout{
+  --top:20%;
+  position:absolute;
+  top:var(--top);
+  display:flex;
+  align-items:center;
+  gap:0;
+  max-width:min(42vw, 280px);
+  opacity:0;
+  transform:translateY(10px);
+  will-change:opacity,transform;
+}
+
+.water-dive-callouts.is-visible .wd-callout.is-in{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity 0.35s ease, transform 0.35s ease;
+}
+
+.wd-callout--left{
+  left:clamp(14px, 4vw, 48px);
+  flex-direction:row;
+}
+
+.wd-callout--right{
+  right:clamp(14px, 4vw, 48px);
+  flex-direction:row-reverse;
+}
+
+.wd-callout[data-wd-callout="0"]{ --top:14%; }
+.wd-callout[data-wd-callout="1"]{ --top:36%; }
+.wd-callout[data-wd-callout="2"]{ --top:14%; }
+.wd-callout[data-wd-callout="3"]{ --top:52%; }
+
+@media (min-width:769px){
+  /* Desktop: hide Why It Matters — keep on mobile */
+  .water-dive-heading{
+    display:none !important;
+  }
+  /* Pull cards closer to the meter (match legacy water-testing spacing) */
+  .wd-callout--left{
+    left:clamp(28px, 14vw, 260px);
+  }
+  .wd-callout--right{
+    right:clamp(28px, 14vw, 260px);
+  }
+  .wd-callout[data-wd-callout="2"]{
+    left:auto;
+    right:clamp(28px, 14vw, 260px);
+    flex-direction:row-reverse;
+  }
+  .wd-callout[data-wd-callout="2"] .wd-callout-line{ transform-origin:left center; }
+  .wd-callout[data-wd-callout="2"] .wd-callout-dot{ left:-3px; right:auto; }
+}
+
+.wd-callout-pointer{
+  position:relative;
+  flex:0 0 auto;
+  width:clamp(28px, 3.2vw, 42px);
+  height:12px;
+  display:flex;
+  align-items:center;
+}
+
+.wd-callout-line{
+  display:block;
+  width:100%;
+  height:0;
+  border-top:2px dashed rgba(255,106,19,0.95);
+  transform-origin:right center;
+  transform:scaleX(0);
+  opacity:0;
+}
+
+.wd-callout--right .wd-callout-line{
+  transform-origin:left center;
+}
+
+.water-dive-callouts.is-visible .wd-callout.is-in .wd-callout-line{
+  transform:scaleX(1);
+  opacity:1;
+  transition:transform 0.4s ease 0.05s, opacity 0.3s ease 0.05s;
+}
+
+.wd-callout-dot{
+  position:absolute;
+  top:50%;
+  width:10px;
+  height:10px;
+  margin-top:-5px;
+  border-radius:50%;
+  background:var(--wd-orange);
+  box-shadow:0 0 0 3px rgba(255,106,19,0.25);
+}
+
+.wd-callout--left .wd-callout-dot{ right:-3px; }
+.wd-callout--right .wd-callout-dot{ left:-3px; }
+
+.wd-callout-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:18px;
+  overflow:hidden;
+  /* Scale past the PNG’s light rim so the white frame is clipped */
+  background:url('../assets/images/icons/features/card-bg.png') center / 118% 140% no-repeat;
+  border:none;
+  outline:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  box-shadow:0 8px 24px rgba(0,0,0,0.32);
+}
+
+.wd-callout-icon{
+  flex:0 0 auto;
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.14) 0%, rgba(28,30,36,0.95) 42%, rgba(18,20,26,1) 100%);
+  border:1.5px solid rgba(255,106,19,0.85);
+  box-shadow:
+    0 0 0 3px rgba(255,106,19,0.18),
+    0 4px 14px rgba(255,106,19,0.28);
+}
+
+.wd-callout-icon img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 0 1px rgba(0,0,0,0.35));
+}
+
+.wd-callout-copy{
+  min-width:0;
+}
+
+.wd-callout-title{
+  margin:0 0 2px;
+  color:#fff;
+  font-size:clamp(0.78rem, 1.15vw, 0.92rem);
+  font-weight:700;
+  line-height:1.25;
+}
+
+.wd-callout-text{
+  margin:0;
+  color:var(--wd-muted);
+  font-size:clamp(0.68rem, 1vw, 0.8rem);
+  line-height:1.35;
+}
+
+@media (max-width:768px){
+  .water-dive-heading{
+    display:block;
+    left:10px;
+    right:auto;
+    /* Match dismantle mobile heading size */
+    font-size:clamp(26px, 7vw, 34px);
+    line-height:1.08;
+    top:clamp(12px, 2.5vh, 22px);
+    text-align:left;
+    transform:translateY(12px);
+  }
+
+  .water-dive-heading.is-in,
+  .water-dive-callouts.is-visible .water-dive-heading{
+    transform:translateY(0);
+  }
+
+  /* Mobile: titles + icons only — hide card descriptions */
+  .wd-callout-text{
+    display:none;
+  }
+
+  .wd-callout--left{ left:10px; }
+  .wd-callout--right{ right:6px; }
+
+  .wd-callout{
+    max-width:min(48vw, 200px);
+  }
+
+  .wd-callout[data-wd-callout="0"]{ --top:18%; }
+  .wd-callout[data-wd-callout="1"]{ --top:40%; }
+  .wd-callout[data-wd-callout="2"]{
+    left:10px;
+    right:auto;
+    flex-direction:row;
+    --top:62%;
+  }
+  .wd-callout[data-wd-callout="2"] .wd-callout-line{ transform-origin:right center; }
+  .wd-callout[data-wd-callout="2"] .wd-callout-dot{ right:-3px; left:auto; }
+  /* Keep Low Cost card on the right, below the LCD so it clears the meter */
+  .wd-callout[data-wd-callout="3"]{
+    --top:62%;
+    left:auto;
+    right:6px;
+    max-width:min(40vw, 138px);
+  }
+
+  .wd-callout-card{
+    padding:8px 9px;
+    gap:8px;
+    border-radius:14px;
+  }
+
+  .wd-callout-icon{
+    width:34px;
+    height:34px;
+  }
+
+  .wd-callout-icon img{
+    width:20px;
+    height:20px;
+  }
+
+  .wd-callout-pointer{
+    width:22px;
+  }
+}

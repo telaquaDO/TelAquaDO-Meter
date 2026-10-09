@@ -1,0 +1,298 @@
+/* Standalone Shrimp Farming / Fish Farming pages */
+.farm-page{
+  background:#fff;
+  color:var(--body);
+}
+.farm-hero{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(76px,9vw,132px) 0 clamp(72px,8vw,116px);
+  background:
+    radial-gradient(circle at 78% 42%,rgba(42,194,199,.18),transparent 31%),
+    linear-gradient(135deg,#f5fbfb 0%,#fff 52%,#fff4eb 100%);
+}
+.farm-page--fish .farm-hero{
+  background:
+    radial-gradient(circle at 78% 42%,rgba(10,45,99,.14),transparent 32%),
+    linear-gradient(135deg,#f2f8fc 0%,#fff 52%,#effbfa 100%);
+}
+.farm-hero::before{
+  content:'TEL-AQUA';
+  position:absolute;
+  left:-.03em;
+  bottom:-.22em;
+  color:rgba(10,45,99,.035);
+  font-size:clamp(6rem,17vw,17rem);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.07em;
+  white-space:nowrap;
+  pointer-events:none;
+}
+.farm-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(340px,.98fr);
+  align-items:center;
+  gap:clamp(42px,7vw,100px);
+}
+.farm-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+  color:var(--orange);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.farm-kicker::before{
+  content:'';
+  width:32px;
+  height:2px;
+  background:currentColor;
+}
+.farm-hero h1{
+  max-width:760px;
+  margin-bottom:24px;
+  color:var(--hero-heading-navy, #0B2545);
+  font-family:var(--font);
+  font-size:clamp(2.7rem,5.7vw,5.4rem);
+  font-weight:var(--hero-heading-weight, 800);
+  line-height:var(--hero-heading-leading, 1.08);
+  letter-spacing:var(--hero-heading-tracking, -0.015em);
+  text-transform:uppercase;
+}
+.farm-hero h1 span{color:var(--hero-heading-accent, var(--orange));}
+.farm-page--fish .farm-hero h1 span{color:var(--hero-heading-accent, var(--orange));}
+.farm-hero-copy>p{
+  max-width:650px;
+  margin-bottom:30px;
+  color:#52606d;
+  font-size:clamp(1.05rem,1.7vw,1.25rem);
+  line-height:1.75;
+}
+.farm-hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+.farm-secondary-btn{
+  border:1px solid rgba(10,45,99,.18);
+  background:#fff;
+  color:var(--heading);
+}
+.farm-hero-visual{
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-height:520px;
+}
+.farm-hero-orbit{
+  position:absolute;
+  width:min(40vw,510px);
+  aspect-ratio:1;
+  border:1px solid rgba(42,194,199,.28);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 42px rgba(42,194,199,.06),
+    0 0 0 86px rgba(249,115,22,.035);
+}
+.farm-hero-visual img{
+  position:relative;
+  z-index:1;
+  width:min(100%,480px);
+  max-height:570px;
+  object-fit:contain;
+  filter:drop-shadow(0 28px 36px rgba(10,45,99,.18));
+}
+.farm-reading{
+  position:absolute;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 16px;
+  border:1px solid rgba(10,45,99,.08);
+  border-radius:14px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 14px 34px rgba(10,45,99,.12);
+  backdrop-filter:blur(10px);
+}
+.farm-reading i{color:var(--orange);font-size:1.1rem;}
+.farm-reading strong{display:block;color:var(--heading);font-size:.88rem;}
+.farm-reading span{font-size:.72rem;color:#6b7280;}
+.farm-reading--ph{left:0;top:20%;}
+.farm-reading--temp{right:0;bottom:19%;}
+.farm-intro{padding:clamp(78px,9vw,128px) 0;}
+.farm-intro-grid{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:clamp(44px,8vw,112px);
+  align-items:start;
+}
+.farm-section-label{
+  display:block;
+  margin-bottom:14px;
+  color:var(--orange);
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.farm-intro h2,
+.farm-routine h2,
+.farm-benefits h2{
+  color:var(--heading);
+  font-size:clamp(2.15rem,4.2vw,3.8rem);
+  line-height:1.06;
+  letter-spacing:-.035em;
+}
+.farm-intro-copy>p{
+  margin-bottom:30px;
+  font-size:1.08rem;
+  line-height:1.8;
+}
+.farm-checks{display:grid;gap:14px;}
+.farm-check{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:18px 20px;
+  border:1px solid rgba(10,45,99,.08);
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 8px 30px rgba(10,45,99,.05);
+}
+.farm-check i{
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  border-radius:10px;
+  background:rgba(249,115,22,.1);
+  color:var(--orange);
+}
+.farm-check strong{display:block;margin-bottom:4px;color:var(--heading);}
+.farm-check p{font-size:.92rem;line-height:1.6;}
+.farm-benefits{
+  padding:clamp(78px,9vw,128px) 0;
+  background:#f5f9f9;
+}
+.farm-benefits-head{max-width:760px;margin:0 auto 50px;text-align:center;}
+.farm-benefits-head p{margin-top:18px;font-size:1.05rem;}
+.farm-benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.farm-benefit-card{
+  padding:30px;
+  border:1px solid rgba(10,45,99,.08);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 12px 38px rgba(10,45,99,.06);
+}
+.farm-benefit-icon{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  margin-bottom:22px;
+  border-radius:15px;
+  background:var(--orange);
+  color:#fff;
+  font-size:1.2rem;
+}
+.farm-benefit-card:nth-child(2) .farm-benefit-icon{background:#20aeb4;}
+.farm-benefit-card:nth-child(3) .farm-benefit-icon{background:var(--heading);}
+.farm-benefit-card h3{margin-bottom:12px;color:var(--heading);font-size:1.3rem;}
+.farm-benefit-card p{font-size:.96rem;line-height:1.7;}
+.farm-routine{padding:clamp(78px,9vw,128px) 0;}
+.farm-routine-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:clamp(44px,8vw,110px);
+}
+.farm-routine-media{
+  position:relative;
+  overflow:hidden;
+  min-height:530px;
+  border-radius:24px;
+  background:linear-gradient(145deg,#eaf7f7,#fff4e9);
+}
+.farm-routine-media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:28px;
+}
+.farm-routine-copy>p{margin:22px 0 28px;font-size:1.05rem;line-height:1.8;}
+.farm-steps{display:grid;gap:16px;}
+.farm-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;}
+.farm-step span{
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#f3f6f8;
+  color:var(--orange);
+  font-weight:800;
+}
+.farm-step strong{display:block;margin:2px 0 4px;color:var(--heading);}
+.farm-step p{font-size:.9rem;line-height:1.55;}
+.farm-cta{padding:0 0 clamp(78px,9vw,128px);}
+.farm-cta-inner{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  padding:clamp(38px,6vw,70px);
+  border-radius:24px;
+  background:var(--heading);
+  color:#fff;
+}
+.farm-cta-inner::after{
+  content:'';
+  position:absolute;
+  right:-120px;
+  top:-180px;
+  width:420px;
+  height:420px;
+  border:80px solid rgba(42,194,199,.12);
+  border-radius:50%;
+}
+.farm-cta h2{position:relative;z-index:1;max-width:700px;color:#fff;font-size:clamp(2rem,4vw,3.5rem);}
+.farm-cta .btn{position:relative;z-index:1;flex:0 0 auto;}
+@media (max-width:940px){
+  .farm-hero-grid{grid-template-columns:1fr;gap:20px;}
+  .farm-hero-copy{text-align:center;}
+  .farm-hero-copy>p{margin-inline:auto;}
+  .farm-kicker,.farm-hero-actions{justify-content:center;}
+  .farm-hero-visual{min-height:430px;}
+  .farm-hero-orbit{width:min(78vw,430px);}
+  .farm-reading--ph{left:8%;}
+  .farm-reading--temp{right:8%;}
+}
+@media (max-width:768px){
+  .farm-intro-grid,.farm-routine-grid{grid-template-columns:1fr;}
+  .farm-benefit-grid{grid-template-columns:1fr;}
+  .farm-intro-title{text-align:center;}
+  .farm-routine-media{min-height:400px;}
+  .farm-cta-inner{align-items:flex-start;flex-direction:column;}
+}
+@media (max-width:520px){
+  .farm-hero{padding-top:58px;}
+  .farm-hero h1{font-size:clamp(2.35rem,12vw,3.4rem);}
+  .farm-hero-visual{min-height:360px;}
+  .farm-reading{padding:10px 12px;}
+  .farm-reading--ph{left:0;top:14%;}
+  .farm-reading--temp{right:0;bottom:12%;}
+  .farm-routine-media{min-height:320px;}
+  .farm-cta-inner{border-radius:18px;}
+}

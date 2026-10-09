@@ -1,0 +1,6 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F3E7DC"/>
+  <circle cx="200.0" cy="152.0" r="64.0" fill="#C7B299"/>
+  <path d="M80.0 380.0 Q 200.0 248.0 320.0 380.0 Z" fill="#111827" opacity="0.85"/>
+  <text x="50%" y="50%" font-family="Poppins, sans-serif" font-size="28" fill="#111827" opacity="0" text-anchor="middle">SU</text>
+</svg>

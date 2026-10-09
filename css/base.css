@@ -1,0 +1,201 @@
+@import url('variables.css');
+@import url('typography.css');
+@import url('hero-heading.css');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Hide 2-in-1 pill on every page banner / hero */
+.hero-slide-tagline,
+.about-hero-tagline,
+.contact-hero-tagline,
+.cal-hero-tagline{
+  display:none !important;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+
+body{
+  font-family:var(--font);
+  font-weight:var(--weight-body);
+  color:var(--body);
+  background:var(--bg);
+  line-height:var(--leading-body);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  width:100%;
+  max-width:100%;
+}
+
+img,video{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;border:none;background:none;cursor:pointer;}
+input,textarea,select{font-family:inherit;}
+
+:focus-visible{
+  outline:2.5px solid var(--orange);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+h1,h2,h3,h4,
+.section-heading,
+.hero-heading{
+  font-family:var(--font);
+  color:var(--heading);
+  font-weight:var(--weight-heading);
+  line-height:var(--leading-heading);
+  letter-spacing:var(--tracking-tight);
+  text-transform:uppercase;
+}
+h1{font-size:clamp(2.6rem,5.4vw,4.6rem);font-weight:var(--weight-hero);}
+h2{font-size:clamp(2.1rem,3.8vw,3.25rem);font-weight:var(--weight-heading);}
+h3{font-size:clamp(1.2rem,1.8vw,1.55rem);font-weight:var(--weight-card);letter-spacing:-0.02em;}
+p{font-size:1rem;font-weight:var(--weight-body);color:var(--body);line-height:var(--leading-body);text-transform:none;}
+.accent{color:var(--orange);}
+
+/* Indic scripts: skip Latin uppercase on headings */
+html[data-lang="hi"] h1,
+html[data-lang="hi"] h2,
+html[data-lang="hi"] h3,
+html[data-lang="hi"] h4,
+html[data-lang="hi"] .section-heading,
+html[data-lang="te"] h1,
+html[data-lang="te"] h2,
+html[data-lang="te"] h3,
+html[data-lang="te"] h4,
+html[data-lang="te"] .section-heading,
+html[data-lang="bn"] h1,
+html[data-lang="bn"] h2,
+html[data-lang="bn"] h3,
+html[data-lang="bn"] h4,
+html[data-lang="bn"] .section-heading{
+  text-transform:none;
+}
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 clamp(20px,5vw,56px);
+}
+
+section{padding:var(--section-y) 0;}
+.section-light{background:var(--light);}
+.section-dark{background:var(--navy);color:#C9DAD8;}
+.section-dark h1,.section-dark h2,.section-dark h3{color:#fff;}
+.section-dark .body-muted{color:#9FC0BD;}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:0.75rem;
+  font-weight:var(--weight-label);
+  letter-spacing:var(--tracking-label);
+  text-transform:uppercase;
+  color:var(--label);
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:'';
+  width:18px;height:2px;
+  background:var(--label);
+  display:inline-block;
+  border-radius:2px;
+}
+
+.section-head{
+  max-width:640px;
+  margin-bottom:clamp(28px,4vw,48px);
+}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.section-head h2{font-weight:var(--weight-heading);}
+.section-head p{margin-top:14px;font-size:1.05rem;font-weight:var(--weight-body);color:var(--body);}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 34px;
+  border-radius:var(--radius-pill);
+  font-weight:var(--weight-nav, 600);
+  font-size:0.98rem;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .25s ease;
+  white-space:nowrap;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+.btn-primary{
+  background:var(--orange);
+  color:#fff;
+  box-shadow:var(--shadow-orange);
+}
+.btn-primary:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 18px 40px rgba(250,115,21,0.4);}
+.btn-ghost{
+  background:transparent;
+  color:var(--heading);
+  border:1.5px solid rgba(17,24,39,0.15);
+}
+.btn-ghost:hover{border-color:var(--heading);transform:translateY(-2px);}
+.btn-light{
+  background:#fff;
+  color:var(--heading);
+}
+.btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn-sm{padding:12px 24px;font-size:0.88rem;}
+
+/* CTA labels — always capital case on web + mobile */
+.nav-buy,
+.floating-buy,
+.floating-buy span,
+.mobile-sticky-buy__cta,
+.mobile-sticky-buy__cta span,
+.home-pricing-actions .btn,
+.home-pricing-add,
+.home-pricing-buy,
+.home-faq-btn,
+.pdp-add-button,
+.pdp-buy-now,
+.pdp-sticky-add,
+.cal-seven-cta,
+.contact-hero-cta,
+.cart-coupon-apply,
+[data-add-to-cart],
+[data-buy-now],
+[data-place-order],
+.cart-summary .btn{
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+
+/* ===== Cards ===== */
+.card{
+  background:#fff;
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+
+/* ===== Grid utilities ===== */
+.grid{display:grid;gap:28px;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+@media (max-width:900px){
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+}
+
+/* .reveal starts visible by default (progressive enhancement).
+   JS sets the hidden state via GSAP before animating, so the page
+   still reads correctly if the animation library fails to load. */
+.reveal{opacity:1;}
+
+/* ===== Scrollbar ===== */
+::selection{background:var(--orange);color:#fff;}

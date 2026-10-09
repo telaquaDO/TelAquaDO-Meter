@@ -1,0 +1,204 @@
+/*
+ * One shared guide behind Product & Benefits and Dismantle.
+ * The region clips the layer at its first and last section boundaries, while
+ * the sticky viewport keeps a single image continuous through both scenes.
+ */
+.product-dismantle-region{
+  position:relative;
+  z-index:1;
+  width:100%;
+  overflow:clip;
+  background:#fff;
+  isolation:isolate;
+}
+
+.product-dismantle-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  overflow:clip;
+  pointer-events:none;
+}
+
+.product-dismantle-bg-sticky{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+/* Shared Tel-Aqua background artwork behind the scroll-driven product scenes. */
+.product-dismantle-bg-sticky .product-cinematic-guide{
+  display:block;
+}
+
+.product-dismantle-region > .product-story,
+.product-dismantle-region > .dismantle-story{
+  position:relative;
+  z-index:1;
+  background:transparent;
+}
+
+/*
+ * Water-fall: hide circle + Tel-Aqua watermark in place.
+ * No transform / top changes — avoids the sticky “slide away” look.
+ */
+.product-cinematic.is-water-fall .product-cinematic-guide,
+.product-dismantle-region.is-water-fall .product-cinematic-guide,
+.product-dismantle-bg.is-water-fall .product-cinematic-guide,
+.product-cinematic.is-water-fall .product-story-circle,
+.product-dismantle-region.is-water-fall .product-story-circle{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:none !important;
+}
+
+/*
+ * Static section heading. It intentionally sits outside the pinned canvas,
+ * participates in ordinary document flow, and is never transformed by GSAP.
+ */
+.product-story > .product-story-intro{
+  position:relative;
+  z-index:3;
+  top:auto;
+  left:auto;
+  width:100%;
+  max-width:min(94vw, 760px);
+  /* Keep the box visible almost immediately under the heading. */
+  margin:0 auto clamp(20px, 4vh, 44px);
+  padding:0;
+  opacity:1;
+  visibility:visible;
+  transform:none;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  pointer-events:auto;
+}
+
+.product-story > .product-story-intro .product-story-eyebrow{
+  margin:0 0 11px;
+  color:#28bcbf;
+  font-size:clamp(9px,.68vw,11px);
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.2em;
+}
+
+.product-story > .product-story-intro h2{
+  margin:0 0 10px;
+  color:#0a2d63;
+  font-size:clamp(26px, 2.55vw, 40px);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:0;
+  white-space:nowrap;
+  max-width:none;
+}
+
+.product-story > .product-story-intro .product-story-heading-accent{
+  color:#fb6917;
+  font-style:normal;
+  font-weight:700;
+}
+
+.product-story > .product-story-intro .product-story-sub{
+  margin:0 0 17px;
+  color:#757575;
+  font-size:clamp(14px,1.05vw,17px);
+  font-weight:400;
+  line-height:1.4;
+  white-space:nowrap;
+  max-width:none;
+}
+
+.product-story > .product-story-intro .product-story-cta{
+  min-height:0;
+  padding:10px 18px;
+  border-radius:var(--radius-pill);
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.04em;
+}
+
+/*
+ * Shared vertical center for circle, 3D stage, and dismantle PNG.
+ * Lead-in uses a lower guide (--ps-guide-lead-y) so the ring clears the
+ * heading; JS lerps to --ps-anchor-y when the pin/devices take over.
+ * Device/stage positions stay on --ps-anchor-y and are not moved here.
+ */
+.product-cinematic{
+  --ps-anchor-y:46%;
+  --ps-guide-lead-y:48%;
+}
+
+.product-dismantle-bg-sticky .product-cinematic-guide{
+  position:absolute;
+  left:50%;
+  right:auto;
+  top:var(--ps-guide-lead-y, 62%);
+  width:auto;
+  height:var(--ps-circle);
+  margin:0;
+  transform:translate3d(-50%, -50%, 0);
+  object-fit:contain;
+  object-position:center center;
+}
+
+@media (max-width:1024px){
+  .product-story > .product-story-intro{
+    max-width:min(94vw, 640px);
+    margin-bottom:clamp(18px, 3.5vh, 36px);
+  }
+
+  .product-story > .product-story-intro h2{
+    font-size:clamp(24px, 2.8vw, 34px);
+  }
+
+  .product-dismantle-bg-sticky .product-cinematic-guide{
+    left:50%;
+    top:var(--ps-guide-lead-y, 62%);
+    height:var(--ps-circle);
+    transform:translate3d(-50%, -50%, 0);
+  }
+}
+
+@media (max-width:768px){
+  .product-cinematic{
+    /* Tight mobile composition: heading + ring + box should fit together. */
+    --ps-anchor-y:43%;
+    --ps-guide-lead-y:44%;
+  }
+
+  .product-story > .product-story-intro{
+    width:calc(100% - 40px);
+    max-width:none;
+    margin-right:20px;
+    margin-bottom:clamp(8px, 2vh, 18px);
+    margin-left:20px;
+  }
+
+  .product-story > .product-story-intro h2{
+    font-size:clamp(22px, 5.8vw, 30px);
+    white-space:nowrap;
+  }
+
+  .product-story > .product-story-intro .product-story-sub{
+    white-space:normal;
+  }
+
+  .product-dismantle-bg-sticky .product-cinematic-guide{
+    left:50%;
+    top:var(--ps-guide-lead-y, 48%);
+    height:var(--ps-circle);
+    transform:translate3d(-50%, -50%, 0);
+    opacity:1;
+  }
+}

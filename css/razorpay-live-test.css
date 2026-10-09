@@ -1,0 +1,351 @@
+/* Hidden LIVE ₹1 Razorpay test page — scoped to .page-rzp-live-test */
+
+.page-rzp-live-test{
+  background:linear-gradient(180deg, #f7f9fb 0%, #eef3f7 100%);
+  min-height:100vh;
+  color:#0A2D63;
+}
+
+.page-rzp-live-test .navbar .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.rzp-test-nav-note{
+  margin:0;
+  font-size:0.78rem;
+  font-weight:600;
+  color:#6b7785;
+  text-align:right;
+}
+
+.rzp-test-main{
+  padding:clamp(24px, 4vw, 48px) 0 clamp(48px, 8vw, 88px);
+}
+
+.rzp-test-wrap{
+  max-width:640px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.rzp-test-warn{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:14px 16px;
+  border-radius:12px;
+  border:1.5px solid rgba(220, 38, 38, 0.28);
+  background:#fff5f5;
+  color:#991b1b;
+}
+
+.rzp-test-warn strong{
+  font-size:0.82rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+
+.rzp-test-warn span{
+  font-size:0.9rem;
+  line-height:1.45;
+}
+
+.rzp-test-card{
+  background:#fff;
+  border:1px solid rgba(10, 45, 99, 0.08);
+  border-radius:18px;
+  box-shadow:0 10px 28px rgba(10, 45, 99, 0.05);
+  padding:clamp(20px, 3vw, 28px);
+}
+
+.rzp-test-eyebrow{
+  margin:0 0 8px;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#28bcbf;
+}
+
+.rzp-test-card h1{
+  margin:0 0 18px;
+  font-size:clamp(1.35rem, 3vw, 1.7rem);
+  font-weight:800;
+  line-height:1.2;
+}
+
+.rzp-test-card h2{
+  margin:0 0 16px;
+  font-size:1.15rem;
+  font-weight:800;
+}
+
+.rzp-test-price-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.rzp-test-label{
+  display:block;
+  margin-bottom:4px;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#6b7785;
+}
+
+.rzp-test-price{
+  font-size:1.45rem;
+  color:#fb6917;
+}
+
+.rzp-test-form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 14px;
+}
+
+.rzp-test-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width:0;
+}
+
+.rzp-test-field--full{
+  grid-column:1 / -1;
+}
+
+.rzp-test-field > span{
+  font-size:0.8rem;
+  font-weight:600;
+}
+
+.rzp-test-field abbr{
+  color:#e11d48;
+  text-decoration:none;
+}
+
+.rzp-test-field input{
+  width:100%;
+  box-sizing:border-box;
+  padding:11px 13px;
+  border:1.5px solid rgba(17,24,39,0.12);
+  border-radius:10px;
+  font-size:0.95rem;
+  color:#0A2D63;
+  background:#fff;
+  outline:0;
+}
+
+.rzp-test-field input:focus{
+  border-color:#fb6917;
+  box-shadow:0 0 0 3px rgba(251,105,23,0.14);
+}
+
+.rzp-test-actions{
+  grid-column:1 / -1;
+  margin-top:4px;
+}
+
+.rzp-test-actions .btn{
+  width:100%;
+  justify-content:center;
+  min-height:46px;
+}
+
+.rzp-test-actions .btn[disabled]{
+  opacity:0.72;
+  cursor:not-allowed;
+}
+
+.rzp-test-alert{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:10px;
+  font-size:0.9rem;
+  line-height:1.45;
+}
+
+.rzp-test-alert.is-error{
+  background:#fff1f2;
+  border:1px solid rgba(225,29,72,0.2);
+  color:#9f1239;
+}
+
+.rzp-test-alert.is-success{
+  background:#ecfdf5;
+  border:1px solid rgba(16,185,129,0.25);
+  color:#065f46;
+}
+
+.rzp-test-success{
+  text-align:center;
+}
+
+.rzp-test-success-icon{
+  width:52px;
+  height:52px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e7f8f4;
+  color:#0f766e;
+  font-size:1.2rem;
+}
+
+.rzp-test-paid{
+  margin:0 0 16px;
+  font-size:1rem;
+  font-weight:800;
+  color:#15803d;
+}
+
+.rzp-test-details{
+  margin:0;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.rzp-test-details > div{
+  padding:10px 12px;
+  border-radius:10px;
+  background:#f4f7fb;
+  border:1px solid rgba(10,45,99,0.06);
+}
+
+.rzp-test-details dt{
+  font-size:0.68rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:#28bcbf;
+  margin:0 0 3px;
+}
+
+.rzp-test-details dd{
+  margin:0;
+  font-size:0.92rem;
+  font-weight:700;
+  word-break:break-all;
+}
+
+.rzp-test-whatsapp-note{
+  margin:16px 0 0;
+  font-size:0.9rem;
+  line-height:1.45;
+  font-weight:600;
+  color:#0f766e;
+}
+
+.rzp-test-invoice{
+  margin:16px 0 0;
+  padding:14px 12px;
+  text-align:left;
+  border-radius:12px;
+  background:#f4f7fb;
+  border:1px solid rgba(10, 45, 99, 0.08);
+}
+
+.rzp-test-invoice-heading{
+  margin:0 0 10px;
+  font-size:0.72rem;
+  font-weight:800;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:#0A2D63;
+}
+
+.rzp-test-invoice-state{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.rzp-test-invoice-status,
+.rzp-test-invoice-sub,
+.rzp-test-invoice-ready-label,
+.rzp-test-invoice-error{
+  margin:0;
+  font-size:0.88rem;
+  line-height:1.4;
+  color:#5b6472;
+}
+
+.rzp-test-invoice-ready-label{
+  font-weight:700;
+  color:#0f766e;
+}
+
+.rzp-test-invoice-sub{
+  color:#0f766e;
+  font-weight:600;
+}
+
+.rzp-test-invoice-error{
+  color:#b42318;
+  font-weight:600;
+}
+
+.rzp-test-invoice-number{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding:8px 12px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid rgba(10, 45, 99, 0.06);
+}
+
+.rzp-test-invoice-number span{
+  font-size:0.64rem;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:#28bcbf;
+}
+
+.rzp-test-invoice-number strong{
+  font-size:0.88rem;
+  font-weight:700;
+  color:#0A2D63;
+  word-break:break-all;
+}
+
+.rzp-test-invoice-download,
+.rzp-test-invoice-retry{
+  width:100%;
+  justify-content:center;
+  min-height:42px;
+  border-radius:999px;
+}
+
+.rzp-test-invoice-retry{
+  margin-top:10px;
+}
+
+@media (max-width:640px){
+  .page-rzp-live-test .navbar .container{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .rzp-test-nav-note{
+    text-align:left;
+  }
+
+  .rzp-test-form,
+  .rzp-test-price-row{
+    grid-template-columns:1fr;
+  }
+}

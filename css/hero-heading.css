@@ -1,0 +1,160 @@
+/* =========================================================
+   Shared hero / banner heading system
+   Use .hero-heading on banner H1/H2 across the site.
+   Color pattern: navy → orange → navy
+   Legacy aliases (.hero-slide-heading, .about-hero-heading,
+   .cal-hero-heading, .farm-hero h1) inherit the same look.
+   ========================================================= */
+
+.hero-heading,
+.hero-slide-heading,
+.about-hero-heading,
+.about-hero-copy h1.about-hero-heading,
+.cal-hero-heading,
+.farm-hero h1{
+  font-family:var(--font);
+  font-weight:var(--hero-heading-weight);
+  font-style:normal;
+  text-transform:uppercase;
+  letter-spacing:var(--hero-heading-tracking);
+  line-height:var(--hero-heading-leading);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Color utilities — navy / orange / navy stacked look */
+.hero-heading--navy,
+.hero-heading__line--navy{
+  color:var(--hero-heading-navy);
+}
+.hero-heading--orange,
+.hero-heading--accent,
+.hero-heading--teal,
+.hero-heading__line--orange,
+.hero-heading__line--accent,
+.hero-heading__line--teal{
+  color:var(--hero-heading-accent);
+}
+
+.hero-heading__line,
+.hero-slide-heading-line,
+.about-hero-heading-line,
+.cal-hero-heading-line{
+  display:block;
+}
+
+/* ---- Home slider line / word colors (navy → orange → navy) ---- */
+.hero-slide-heading-line--first-orange,
+.hero-slide-heading-line--first-navy,
+.hero-slide-heading-line--second-orange,
+.hero-slide-heading-line--second-navy,
+.hero-slide-heading-line--third-navy,
+.hero-slide-heading-line--third-teal,
+.hero-slide--third .hero-slide-word--navy,
+.hero-slide--third .hero-slide-word--teal{
+  color:var(--hero-heading-navy);
+}
+.hero-slide-heading-line--first-teal,
+.hero-slide-heading-line--second-teal,
+.hero-slide-heading-line--third-orange,
+.hero-slide--third .hero-slide-word--orange{
+  color:var(--hero-heading-accent);
+}
+
+/* About banner: line 1 navy, line 2 orange, line 3 navy */
+.about-hero-heading-line--orange,
+.about-hero-heading-line--navy{
+  color:var(--hero-heading-navy);
+}
+.about-hero-heading-line--teal{
+  color:var(--hero-heading-accent);
+}
+/* Legacy i18n markup: orange → navy → navy becomes navy → orange → navy */
+.about-hero-heading-line--orange + .about-hero-heading-line--navy{
+  color:var(--hero-heading-accent);
+}
+.about-hero-heading-line--orange + .about-hero-heading-line--navy + .about-hero-heading-line--navy{
+  color:var(--hero-heading-navy);
+}
+
+/* Calibrate banner: accent words orange, companion words navy */
+.cal-hero-heading-orange{
+  color:var(--hero-heading-accent);
+}
+.cal-hero-heading-navy{
+  color:var(--hero-heading-navy);
+}
+
+/* Farm heroes: accent span uses orange */
+.farm-hero h1 span,
+.farm-page--fish .farm-hero h1 span{
+  color:var(--hero-heading-accent);
+}
+
+/* Indic scripts: no Latin uppercase; slightly looser leading */
+html[data-lang="hi"] .hero-heading,
+html[data-lang="hi"] .hero-slide-heading,
+html[data-lang="hi"] .hero-slide--first .hero-slide-heading,
+html[data-lang="hi"] .hero-slide--second .hero-slide-heading,
+html[data-lang="hi"] .hero-slide--third .hero-slide-heading,
+html[data-lang="hi"] .about-hero-heading,
+html[data-lang="hi"] .about-hero-copy h1.about-hero-heading,
+html[data-lang="hi"] .cal-hero-heading,
+html[data-lang="hi"] .farm-hero h1,
+html[data-lang="te"] .hero-heading,
+html[data-lang="te"] .hero-slide-heading,
+html[data-lang="te"] .hero-slide--first .hero-slide-heading,
+html[data-lang="te"] .hero-slide--second .hero-slide-heading,
+html[data-lang="te"] .hero-slide--third .hero-slide-heading,
+html[data-lang="te"] .about-hero-heading,
+html[data-lang="te"] .about-hero-copy h1.about-hero-heading,
+html[data-lang="te"] .cal-hero-heading,
+html[data-lang="te"] .farm-hero h1,
+html[data-lang="bn"] .hero-heading,
+html[data-lang="bn"] .hero-slide-heading,
+html[data-lang="bn"] .hero-slide--first .hero-slide-heading,
+html[data-lang="bn"] .hero-slide--second .hero-slide-heading,
+html[data-lang="bn"] .hero-slide--third .hero-slide-heading,
+html[data-lang="bn"] .about-hero-heading,
+html[data-lang="bn"] .about-hero-copy h1.about-hero-heading,
+html[data-lang="bn"] .cal-hero-heading,
+html[data-lang="bn"] .farm-hero h1{
+  text-transform:none;
+  letter-spacing:0.01em;
+  line-height:1.14;
+}
+
+/* Responsive: keep weight / case / tracking; size scales via page clamps */
+@media (max-width:768px){
+  .hero-heading,
+  .hero-slide-heading,
+  .about-hero-heading,
+  .about-hero-copy h1.about-hero-heading,
+  .cal-hero-heading,
+  .farm-hero h1{
+    font-weight:var(--hero-heading-weight);
+    text-transform:uppercase;
+    letter-spacing:var(--hero-heading-tracking);
+    line-height:1.06;
+  }
+
+  html[data-lang="hi"] .hero-heading,
+  html[data-lang="hi"] .hero-slide-heading,
+  html[data-lang="hi"] .about-hero-heading,
+  html[data-lang="hi"] .cal-hero-heading,
+  html[data-lang="hi"] .farm-hero h1,
+  html[data-lang="te"] .hero-heading,
+  html[data-lang="te"] .hero-slide-heading,
+  html[data-lang="te"] .about-hero-heading,
+  html[data-lang="te"] .cal-hero-heading,
+  html[data-lang="te"] .farm-hero h1,
+  html[data-lang="bn"] .hero-heading,
+  html[data-lang="bn"] .hero-slide-heading,
+  html[data-lang="bn"] .about-hero-heading,
+  html[data-lang="bn"] .cal-hero-heading,
+  html[data-lang="bn"] .farm-hero h1{
+    text-transform:none;
+    letter-spacing:0.01em;
+    line-height:1.14;
+  }
+}

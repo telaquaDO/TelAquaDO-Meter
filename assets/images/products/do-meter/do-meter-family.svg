@@ -1,0 +1,94 @@
+<svg width="680" height="980" viewBox="0 0 680 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bodyGrad" x1="80" y1="80" x2="560" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8F3D"/>
+      <stop offset="0.38" stop-color="#F57A1D"/>
+      <stop offset="1" stop-color="#E56200"/>
+    </linearGradient>
+    <linearGradient id="capGrad" x1="200" y1="0" x2="480" y2="160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="0.5" stop-color="#1E232C"/>
+      <stop offset="1" stop-color="#050B12"/>
+    </linearGradient>
+    <linearGradient id="lowerGrad" x1="200" y1="620" x2="470" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1117"/>
+      <stop offset="0.5" stop-color="#171D26"/>
+      <stop offset="1" stop-color="#050B10"/>
+    </linearGradient>
+    <linearGradient id="displayGlass" x1="160" y1="180" x2="500" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#112F35"/>
+      <stop offset="0.35" stop-color="#0D1D22"/>
+      <stop offset="1" stop-color="#060A0D"/>
+    </linearGradient>
+    <linearGradient id="digitGlow" x1="238" y1="230" x2="510" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A8F7B1"/>
+      <stop offset="0.45" stop-color="#7EEE94"/>
+      <stop offset="1" stop-color="#5AD57B"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="340" cy="920" rx="190" ry="34" fill="#D9E4EA" opacity="0.7"/>
+
+  <g transform="translate(110 26)">
+    <path d="M152 0H400C448.526 0 488 39.474 488 88V110H64V88C64 39.474 103.474 0 152 0Z" fill="url(#capGrad)"/>
+    <rect x="64" y="108" width="424" height="700" rx="52" fill="url(#bodyGrad)"/>
+    <path d="M102 170H422V786H102V170Z" fill="url(#bodyGrad)" opacity="0.15"/>
+    <rect x="123" y="142" width="306" height="22" rx="9" fill="#BA4E00" opacity="0.75"/>
+    <g opacity="0.7">
+      <path d="M125 170H417" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 220H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 270H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 320H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 370H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 420H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 470H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 520H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 570H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 620H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+      <path d="M124 670H418" stroke="#B24400" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <g>
+      <rect x="112" y="208" width="328" height="220" rx="18" fill="url(#displayGlass)" stroke="#2F4756" stroke-width="5"/>
+      <rect x="124" y="220" width="304" height="196" rx="14" fill="#08181B" opacity="0.35"/>
+      <text x="173" y="268" fill="#D9FFF6" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="2">DO</text>
+      <text x="144" y="344" fill="url(#digitGlow)" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700">7.26</text>
+      <text x="170" y="392" fill="#C6F4D4" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="2">mg/L</text>
+    </g>
+
+    <g>
+      <rect x="166" y="490" width="220" height="34" rx="17" fill="#0D1117" opacity="0.28"/>
+      <circle cx="275" cy="544" r="15" fill="#F7F1D3" stroke="#E4D7A4" stroke-width="4"/>
+      <circle cx="275" cy="544" r="7" fill="#F4CD50"/>
+      <circle cx="226" cy="544" r="12" fill="#F7F1D3" stroke="#E4D7A4" stroke-width="4"/>
+      <circle cx="324" cy="544" r="12" fill="#F7F1D3" stroke="#E4D7A4" stroke-width="4"/>
+      <path d="M168 610H384" stroke="#F6B13E" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+    </g>
+
+    <g>
+      <circle cx="225" cy="629" r="20" fill="#0E171C" stroke="#F5A33A" stroke-width="4"/>
+      <circle cx="225" cy="629" r="10" fill="#F5A33A"/>
+      <circle cx="311" cy="629" r="20" fill="#0E171C" stroke="#F5A33A" stroke-width="4"/>
+      <circle cx="311" cy="629" r="10" fill="#F5A33A"/>
+    </g>
+
+    <rect x="105" y="720" width="342" height="108" rx="18" fill="url(#lowerGrad)"/>
+    <rect x="133" y="732" width="286" height="80" rx="16" fill="#070D12" opacity="0.7"/>
+    <text x="208" y="788" fill="#F4A857" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing="1.5">Tel-Aqua</text>
+    <text x="228" y="824" fill="#F4A857" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="4">DO METER</text>
+
+    <g opacity="0.75">
+      <path d="M146 785H205" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+      <path d="M332 785H387" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <g opacity="0.4">
+      <path d="M122 486H93" stroke="#222C33" stroke-width="8"/>
+      <path d="M122 540H93" stroke="#222C33" stroke-width="8"/>
+      <path d="M122 594H93" stroke="#222C33" stroke-width="8"/>
+      <path d="M445 486H474" stroke="#222C33" stroke-width="8"/>
+      <path d="M445 540H474" stroke="#222C33" stroke-width="8"/>
+      <path d="M445 594H474" stroke="#222C33" stroke-width="8"/>
+    </g>
+  </g>
+</svg>

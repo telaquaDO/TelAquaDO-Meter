@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /razorpay-test
+Disallow: /razorpay-test/
+
+Sitemap: https://www.telaqua.in/sitemap.xml

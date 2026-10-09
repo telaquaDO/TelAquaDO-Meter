@@ -1,0 +1,10 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#F8F8F8"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="600.0" cy="495.00000000000006" r="60" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.140"/><circle cx="600.0" cy="495.00000000000006" r="155" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.128"/><circle cx="600.0" cy="495.00000000000006" r="250" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.116"/><circle cx="600.0" cy="495.00000000000006" r="345" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.104"/><circle cx="600.0" cy="495.00000000000006" r="440" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.092"/><circle cx="600.0" cy="495.00000000000006" r="535" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.080"/><circle cx="600.0" cy="495.00000000000006" r="630" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.068"/><circle cx="600.0" cy="495.00000000000006" r="725" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.056"/><circle cx="600.0" cy="495.00000000000006" r="820" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.044"/><circle cx="600.0" cy="495.00000000000006" r="915" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.032"/>
+</svg>

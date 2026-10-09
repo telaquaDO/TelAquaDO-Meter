@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tel-Aqua DO Meter | Dissolved Oxygen Monitoring</title>
+  <meta name="description" content="Tel-Aqua DO Meter for dissolved oxygen monitoring in aquaculture. Learn how dissolved oxygen supports pond water-quality decisions.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/base.css?v=11">
+  <link rel="stylesheet" href="css/nav-footer.css?v=91">
+  <link rel="stylesheet" href="css/product.css?v=9">
+  <style>
+    body {
+      background: #f5f8f8;
+      color: #1b2a33;
+    }
+    .do-meter-page .page-hero {
+      padding-top: 110px;
+      padding-bottom: 30px;
+      background: linear-gradient(180deg, #edf8f8 0%, #ffffff 42%, #f8f9fb 100%);
+    }
+    .do-meter-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(249, 115, 22, 0.12);
+      color: #c95b0d;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.7rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      margin: 0 0 18px;
+      color: #0b2230;
+    }
+    .page-hero p.lead {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      max-width: 620px;
+      color: #41525d;
+      margin: 0 0 28px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #fa7315 0%, #ff8d3f 100%);
+      color: #fff;
+      box-shadow: 0 18px 28px rgba(250, 115, 21, 0.18);
+    }
+    .btn-secondary {
+      background: #e7f5f3;
+      color: #0b2230;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: #476170;
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 430px;
+    }
+    .meter-card {
+      position: relative;
+      width: min(90%, 420px);
+      aspect-ratio: 0.72;
+      border-radius: 36px;
+      background: linear-gradient(160deg, #0d2c3b 0%, #184560 100%);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 28px 68px rgba(4, 21, 30, 0.24);
+      overflow: hidden;
+    }
+    .meter-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px 24px 18px 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .meter-screen {
+      position: absolute;
+      inset: 90px 70px 110px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fefff1 0%, #dfeef6 100%);
+      border: 4px solid rgba(90,130,145,0.35);
+      box-shadow: inset 0 0 0 6px rgba(27,42,51,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b2230;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      text-transform: uppercase;
+    }
+    .meter-screen span {
+      display: block;
+      transform: translateY(-2px);
+    }
+    .meter-probe {
+      position: absolute;
+      left: 50%;
+      bottom: 22px;
+      width: 44%;
+      height: 120px;
+      transform: translateX(-50%);
+      border-radius: 24px 24px 32px 32px;
+      background: linear-gradient(180deg, #e4e5e7 0%, #bfc6cc 100%);
+      box-shadow: inset 0 0 0 8px rgba(16, 24, 35, 0.12);
+    }
+    .meter-probe::before {
+      content: "";
+      position: absolute;
+      inset: 22px 22px auto 22px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #b9d6d3 0%, #d8f0ee 100%);
+    }
+    .do-meter-image-wrap {
+      position: relative;
+      width: min(100%, 500px);
+      background: linear-gradient(180deg, #f4f9f9 0%, #f8f9fb 100%);
+      border: 1px solid rgba(11,34,48,0.08);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      box-shadow: 0 20px 48px rgba(11,34,48,0.06);
+    }
+    .do-meter-image-caption {
+      max-width: 440px;
+      margin: 12px auto 0;
+      color: #687c86;
+      text-align: center;
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+    .do-meter-main-image {
+      width: 100%;
+      max-width: 470px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 18px 32px rgba(11,34,48,0.12));
+    }
+    .page-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 20px 30px;
+    }
+    .section-head {
+      margin-bottom: 26px;
+    }
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+      margin: 0 0 12px;
+      color: #0b2230;
+    }
+    .section-head p {
+      max-width: 780px;
+      margin: 0;
+      color: #435d6d;
+      line-height: 1.8;
+      font-size: 1.04rem;
+    }
+    .intro-grid,
+    .feature-grid,
+    .benefits-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .intro-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .info-panel,
+    .feature-card,
+    .benefit-card {
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid rgba(11,34,48,0.08);
+      padding: 28px;
+      box-shadow: 0 20px 44px rgba(11,34,48,0.05);
+    }
+    .info-panel h3,
+    .feature-card h3,
+    .benefit-card h3 {
+      margin: 0 0 12px;
+      color: #0b2230;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+    }
+    .info-panel p,
+    .feature-card p,
+    .benefit-card p {
+      margin: 0;
+      color: #475f6d;
+      line-height: 1.8;
+    }
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .feature-card {
+      min-height: 200px;
+    }
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(11, 34, 48, 0.06);
+      color: #0b2230;
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+    .benefits-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .benefit-card .step-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #f97316;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .flow-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0;
+      color: #f97316;
+      font-size: 1.7rem;
+    }
+    .specs-wrap {
+      overflow: hidden;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(11,34,48,0.08);
+      box-shadow: 0 20px 44px rgba(11,34,48,0.05);
+    }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      padding: 22px 24px;
+      border-bottom: 1px solid rgba(11,34,48,0.06);
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label {
+      font-weight: 700;
+      color: #0b2230;
+    }
+    .spec-value {
+      color: #4d6370;
+    }
+    .quote-note {
+      margin-top: 22px;
+      padding: 18px 22px;
+      background: rgba(249,115,22,0.08);
+      border-left: 4px solid #f97316;
+      border-radius: 14px;
+      color: #2d4b5d;
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .do-meter-layout,
+      .intro-grid,
+      .feature-grid,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      .spec-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body class="do-meter-page">
+  <header class="navbar">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="Tel-Aqua home"><img src="assets/images/logo.png" alt="Tel-Aqua Logo"></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="how-to-calibrate.html">Calibrate &amp; Care</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">BULK ORDER</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="cart.html" class="btn btn-primary nav-buy" data-product-id="telaqua-do-meter">ORDER NOW</a>
+        <a href="account.html" class="icon-btn profile-icon-link" aria-label="Account"><i class="fa-regular fa-user"></i></a>
+        <a href="cart.html" class="icon-btn cart-icon-link" aria-label="Cart"><img class="nav-cart-icon" src="assets/images/icons/cart-bag.png?v=2" alt="" width="24" height="24"></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="do-meter-title">
+      <div class="do-meter-layout">
+        <div>
+          <span class="eyebrow">Tel-Aqua</span>
+          <h1 id="do-meter-title">DO METER</h1>
+          <p class="lead">Dissolved Oxygen Monitoring for Aquaculture</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" data-buy-now data-product-id="telaqua-do-meter">BUY NOW</button>
+            <a class="btn btn-secondary" href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20would%20like%20a%20bulk%20quote%20for%20the%20DO%20Meter." target="_blank" rel="noopener noreferrer">REQUEST BULK QUOTE</a>
+          </div>
+          <div class="hero-meta">
+            <span><i class="fa-solid fa-droplet"></i> Aquaculture-focused</span>
+            <span><i class="fa-solid fa-display"></i> Digital readout</span>
+            <span><i class="fa-solid fa-water"></i> Pond quality monitoring</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="do-meter-image-wrap">
+            <img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO meter" class="do-meter-main-image">
+          </div>
+          <p class="do-meter-image-caption">Official Tel-Aqua DO meter product image.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="do-intro-title">
+      <div class="section-head">
+        <h2 id="do-intro-title">Dissolved oxygen plays a key role in aquaculture water quality.</h2>
+      </div>
+      <div class="intro-grid">
+        <div class="info-panel">
+          <h3>Product introduction</h3>
+          <p>Monitor dissolved oxygen levels in your pond and make informed water-quality decisions with the Tel-Aqua DO Meter. It is designed to support routine field checks and practical pond management decisions for aquaculture operations.</p>
+        </div>
+        <div class="info-panel">
+          <h3>Why it matters</h3>
+          <p>Dissolved oxygen is an important parameter for understanding pond water conditions. Regular monitoring can help farmers understand changes in oxygen availability and respond appropriately as part of their overall pond-management practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="do-features-title">
+      <div class="section-head">
+        <h2 id="do-features-title">Product features</h2>
+        <p>Use more specific information if it is later confirmed. Until then, the feature list below stays clear and non-misleading.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-droplet"></i></div>
+          <h3>Dissolved Oxygen Measurement</h3>
+          <p>Supports basic dissolved oxygen monitoring for pond and water-quality checks.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-display"></i></div>
+          <h3>Digital Display</h3>
+          <p>Designed for quick reading and straightforward on-site monitoring.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Portable Design</h3>
+          <p>Built for field use and practical checking across pond or tank conditions.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-water"></i></div>
+          <h3>Aquaculture-focused use</h3>
+          <p>Useful as part of routine water-quality observation for fish and shrimp ponds.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Easy-to-use operation</h3>
+          <p>Simple operation helps support faster decision-making in the field.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+          <h3>[DO METER SPECIFICATION TO BE ADDED]</h3>
+          <p>Additional details such as measurement range, resolution, or accessories will be added when available.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="do-flow-title">
+      <div class="section-head">
+        <h2 id="do-flow-title">How it helps farmers</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="step-label">Measure</span>
+          <h3>MEASURE</h3>
+          <p>Check dissolved oxygen at the pond or tank location to understand current conditions.</p>
+        </div>
+        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+        <div class="benefit-card">
+          <span class="step-label">Understand</span>
+          <h3>UNDERSTAND</h3>
+          <p>Review the readings to understand how oxygen levels relate to changing water conditions.</p>
+        </div>
+        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+        <div class="benefit-card">
+          <span class="step-label">Respond</span>
+          <h3>RESPOND</h3>
+          <p>Use the information to support informed pond-management decisions and routine monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="do-specs-title">
+      <div class="section-head">
+        <h2 id="do-specs-title">Specifications</h2>
+      </div>
+
+      <div class="specs-wrap">
+        <div class="spec-row">
+          <div class="spec-label">Parameter</div>
+          <div class="spec-value">Dissolved Oxygen</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Dissolved Oxygen Range</div>
+          <div class="spec-value">[TO BE PROVIDED]</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Temperature Measurement</div>
+          <div class="spec-value">[TO BE PROVIDED]</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Display Type</div>
+          <div class="spec-value">[TO BE PROVIDED]</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Application</div>
+          <div class="spec-value">Aquaculture pond monitoring</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Pricing</div>
+          <div class="spec-value">[TO BE PROVIDED]</div>
+        </div>
+      </div>
+
+      <div class="quote-note">
+        Accurate product specifications, pricing, and included accessories will be added when the final DO Meter details are confirmed. Until then, this page keeps the information placeholder-based and avoids unsupported technical claims.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="assets/images/brand/tel-aqua-logo-footer.png?v=2" alt="Tel-Aqua Logo" width="260" height="106"></a>
+          <p>A simple, accurate digital Tel-Aqua pH meter, built for shrimp and fish farmers.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="product.html">PH02</a>
+            <a href="products.html">All Products</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="returns-warranty.html">Replacement &amp; Warranty Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Tel-Aqua. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/i18n.js?v=5"></script>
+  <script src="js/products.js?v=cart-products-3"></script>
+  <script src="js/tracking.js?v=cart-products-3"></script>
+  <script src="js/cart.js?v=cart-products-3"></script>
+  <script src="js/main.js?v=cart-products-3"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+I have received a new high-resolution PNG image sequence with transparent backgrounds for the dismantling animation.
+
+The current implementation uses JPG image frames. I want to replace the existing JPG sequence with the new PNG sequence without changing the animation logic.
+
+Requirements:
+
+1. Remove all references to the old JPG sequence.
+2. Use the new PNG sequence located at:
+
+assets/images/dismantle/
+
+3. Load the PNG frames in the same order as the previous JPG frames.
+4. Preserve the existing GSAP ScrollTrigger animation and frame-by-frame scroll synchronization.
+5. Do not modify the timing, scroll progress, pinning, easing, or animation logic.
+6. Since the PNG images have transparent backgrounds, remove any background assumptions from the old implementation.
+7. Render the PNG frames over the existing website background so only the product is visible.
+8. Ensure every frame is centered exactly like the previous implementation.
+9. Prevent any flickering or layout shifts while changing frames.
+10. Keep the image container dimensions fixed throughout the animation.
+11. Use object-fit: contain so the product remains fully visible.
+12. Enable image preloading for smoother playback.
+13. Keep the animation running at 60 FPS with no visual lag.
+14. Preserve responsiveness across desktop, tablet, and mobile.
+15. Delete any unused JPG imports or references after confirming the PNG sequence works correctly.
+
+The goal is to replace only the image assets while keeping the entire scroll animation identical.

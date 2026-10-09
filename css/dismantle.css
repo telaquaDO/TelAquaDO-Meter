@@ -1,0 +1,482 @@
+/* =========================================================
+   Dismantle annotations — reference-matched layout
+   WebP frame scrub stays in js/dismantle-sequence.js
+   ========================================================= */
+.dismantle-story{
+  --ds-navy:#0A2D63;
+  --ds-teal:#28bcbf;
+  --ds-orange:#FF6A13;
+  --ds-card:#16181d;
+  --ds-muted:#A8B0BC;
+  --ds-font:var(--font);
+  --ds-card-w:clamp(128px, 12.5vw, 158px);
+  --ds-icon:clamp(48px, 4.4vw, 58px);
+  --ds-line-h:clamp(44px, 6.5vh, 68px);
+  position:relative;
+  z-index:2;
+  width:100%;
+  margin:0;
+  padding:0;
+  background:transparent;
+  isolation:isolate;
+  font-family:var(--ds-font);
+}
+
+.dismantle-story.is-active{
+  z-index:4;
+}
+
+.product-story:has(+ .dismantle-story){
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+.product-story + .dismantle-story{
+  margin-top:-100vh;
+}
+
+@supports (height:100dvh){
+  .product-story + .dismantle-story{
+    margin-top:-100dvh;
+  }
+}
+
+.dismantle-story-pin{
+  position:relative;
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:100vh;
+  min-height:100dvh;
+  overflow:hidden;
+  background:transparent;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+.dismantle-story-canvas{
+  position:absolute;
+  inset:0;
+  z-index:6;
+  display:block;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background:transparent;
+  opacity:0;
+  visibility:hidden;
+  transform:translateZ(0);
+  box-shadow:none;
+  filter:none;
+}
+
+.dismantle-story-frame{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:5;
+  display:block;
+  max-width:none;
+  pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  transform-origin:0 0;
+  will-change:transform, opacity;
+  user-select:none;
+  -webkit-user-drag:none;
+  box-shadow:none;
+  filter:none;
+}
+
+.dismantle-story-frame.is-product-visible,
+.dismantle-story-canvas.is-product-visible{
+  visibility:visible !important;
+}
+
+.dismantle-story-frame.is-product-solid,
+.dismantle-story-canvas.is-product-solid{
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+/* Water-dive handoff: must beat is-product-solid !important or contain-card flashes */
+.dismantle-story-frame.is-handoff-hidden,
+.dismantle-story-canvas.is-handoff-hidden,
+.dismantle-story.is-handoff-hidden .dismantle-story-frame,
+.dismantle-story.is-handoff-hidden .dismantle-story-canvas,
+.dismantle-story.is-handoff-hidden .dismantle-callouts,
+.dismantle-story.is-handoff-hidden .dismantle-heading{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+/* Baked-background frames (078+) — full-bleed cover, hide callout chrome */
+.dismantle-story-pin.is-cover-fall .dismantle-callouts,
+.dismantle-story-pin.is-cover-fall .dismantle-heading{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+.dismantle-story-frame.is-cover-fall,
+.dismantle-story-canvas.is-cover-fall{
+  object-fit:cover;
+}
+
+/* ---------- Left heading ---------- */
+.dismantle-heading{
+  position:absolute;
+  z-index:7;
+  top:clamp(72px, 12vh, 120px);
+  left:clamp(20px, 4.5vw, 72px);
+  margin:0;
+  width:max-content;
+  max-width:min(620px, 52vw);
+  color:var(--ds-navy);
+  font-family:var(--ds-font);
+  font-size:clamp(22px, 2.7vw, 42px);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-0.02em;
+  text-align:left;
+  pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  transform:translate3d(0, 18px, 0);
+  will-change:opacity, transform;
+}
+
+.dismantle-heading-line{
+  display:block;
+  width:100%;
+  white-space:nowrap;
+}
+
+.dismantle-heading-line:first-child{
+  letter-spacing:-0.015em;
+}
+
+.dismantle-heading-line:not(:first-child){
+  letter-spacing:0.01em;
+}
+
+.dismantle-heading-line:last-child{
+  white-space:normal;
+}
+
+.dismantle-heading-accent{
+  font-style:normal;
+  color:var(--ds-teal);
+  letter-spacing:0.01em;
+  white-space:nowrap;
+}
+
+/* ---------- Callouts: shared baseline, vertical stems ---------- */
+.dismantle-callouts{
+  position:absolute;
+  inset:0;
+  z-index:6;
+  pointer-events:none;
+}
+
+.dismantle-card{
+  --line-h:var(--ds-line-h);
+  position:absolute;
+  left:var(--anchor, 50%);
+  /* Raised baseline — less empty air under the product */
+  bottom:clamp(36px, 5.5vh, 64px);
+  width:var(--ds-card-w);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  opacity:0;
+  visibility:hidden;
+  transform:translate3d(-50%, 24px, 0);
+  transform-origin:50% 100%;
+  will-change:opacity, transform, filter;
+  pointer-events:auto;
+}
+
+/*
+ * Column stack (top → bottom), all sharing one X:
+ * orange dot → dotted vertical line → card (icon lives inside the card)
+ */
+.dismantle-card-pointer{
+  position:relative;
+  display:block;
+  width:0;
+  height:var(--line-h);
+  margin:0 0 8px;
+  pointer-events:none;
+}
+
+.dismantle-card-dot{
+  position:absolute;
+  top:0;
+  left:50%;
+  width:8px;
+  height:8px;
+  margin-left:-4px;
+  border-radius:50%;
+  background:var(--ds-orange);
+  box-shadow:
+    0 0 0 3px rgba(255,106,19,0.16),
+    0 0 10px rgba(255,106,19,0.28);
+  transform:translate3d(0, 0, 0) scale(0);
+  transform-origin:center;
+  opacity:0;
+  will-change:transform, opacity;
+  z-index:2;
+}
+
+.dismantle-card-line{
+  position:absolute;
+  left:50%;
+  top:8px;
+  bottom:0;
+  width:0;
+  border-left:1.5px dotted var(--ds-orange);
+  opacity:0;
+  transform:scaleY(0);
+  transform-origin:50% 0%; /* grow downward from the dot */
+  will-change:transform, opacity;
+  z-index:1;
+}
+
+/* Icons sit inside the dark card (reference layout) — asset already has orange ring */
+.dismantle-card-icon-wrap{
+  position:relative;
+  z-index:1;
+  width:var(--ds-icon);
+  height:var(--ds-icon);
+  margin:0 0 10px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  opacity:0;
+  transform:translate3d(0, 8px, 0) scale(0.9);
+  transform-origin:center;
+  will-change:opacity, transform;
+  flex:0 0 auto;
+}
+
+.dismantle-card.is-active-callout .dismantle-card-icon-wrap{
+  box-shadow:none;
+}
+
+.dismantle-card-icon{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.dismantle-card-body{
+  position:relative;
+  width:100%;
+  min-height:clamp(148px, 17vh, 178px);
+  padding:clamp(16px, 1.5vw, 20px) clamp(12px, 1.1vw, 15px) clamp(16px, 1.5vw, 20px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  border-radius:20px;
+  background:
+    radial-gradient(120% 80% at 88% 0%, rgba(255,106,19,0.22) 0%, rgba(255,106,19,0) 42%),
+    linear-gradient(165deg, #22262f 0%, var(--ds-card) 48%, #101218 100%);
+  border:1px solid rgba(255,106,19,0.28);
+  box-shadow:none;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  opacity:0;
+  transform:translate3d(0, 14px, 0);
+  will-change:opacity, transform;
+}
+
+.dismantle-card-body::before{
+  content:"";
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:radial-gradient(circle, #ffb070 0%, var(--ds-orange) 55%, transparent 70%);
+  opacity:0.85;
+  pointer-events:none;
+}
+
+.dismantle-card-title{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:clamp(12px, 1vw, 14px);
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:0.01em;
+}
+
+.dismantle-card-desc{
+  margin:0;
+  color:var(--ds-muted);
+  font-size:clamp(10px, 0.88vw, 12px);
+  font-weight:500;
+  line-height:1.4;
+  max-width:14em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .dismantle-heading{
+    max-width:min(520px, 56vw);
+    font-size:clamp(18px, 2.5vw, 32px);
+  }
+  .dismantle-story{
+    --ds-card-w:clamp(112px, 13.5vw, 136px);
+    --ds-line-h:clamp(36px, 5.5vh, 56px);
+  }
+  .dismantle-card{
+    bottom:clamp(28px, 4.5vh, 48px);
+  }
+  .dismantle-card-body{
+    min-height:140px;
+    border-radius:18px;
+    padding:14px 10px 15px;
+  }
+}
+
+@media (max-width:900px){
+  .dismantle-heading{
+    top:clamp(64px, 10vh, 88px);
+    left:clamp(16px, 3vw, 28px);
+    max-width:min(420px, 70vw);
+    font-size:clamp(16px, 3.2vw, 26px);
+  }
+  .dismantle-story{ --ds-line-h:clamp(32px, 5vh, 48px); }
+  .dismantle-card-desc{ font-size:10px; }
+}
+
+/* Mobile: all callouts at once, title-only, tip-aligned under product parts */
+@media (max-width:768px){
+  .dismantle-story{
+    --ds-card-w:62px;
+    --ds-icon:28px;
+    --ds-line-h:38px;
+  }
+  .dismantle-heading{
+    /* Fill the empty upper band — larger type, centered above the meter */
+    top:clamp(108px, 18vh, 156px);
+    left:0;
+    right:0;
+    margin-inline:auto;
+    max-width:min(300px, 78vw);
+    width:max-content;
+    font-size:clamp(26px, 7vw, 34px);
+    line-height:1.08;
+    text-align:center;
+  }
+  .dismantle-callouts{
+    inset:0;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    height:auto;
+    display:block;
+    padding:0;
+    overflow:visible;
+  }
+  .dismantle-card{
+    /* Raised under the product via JS --card-bottom; fallback keeps labels on-screen */
+    bottom:var(--card-bottom, clamp(72px, 14vh, 120px));
+    width:var(--ds-card-w);
+    min-width:var(--ds-card-w);
+    max-width:var(--ds-card-w);
+  }
+  .dismantle-card-pointer{
+    height:var(--line-h, var(--ds-line-h));
+    margin-bottom:4px;
+  }
+  .dismantle-card-dot{
+    width:6px;
+    height:6px;
+    margin-left:-3px;
+  }
+  .dismantle-card-line{
+    top:6px;
+  }
+  .dismantle-card-icon-wrap{
+    width:var(--ds-icon);
+    height:var(--ds-icon);
+    margin:0 0 5px;
+  }
+  .dismantle-card-body{
+    width:100%;
+    height:74px;
+    min-height:74px;
+    max-height:74px;
+    box-sizing:border-box;
+    border-radius:12px;
+    padding:8px 4px 7px;
+    justify-content:flex-start;
+    align-items:center;
+  }
+  .dismantle-card-body::before{
+    top:6px;
+    right:6px;
+    width:5px;
+    height:5px;
+  }
+  .dismantle-card-title{
+    margin:0;
+    width:100%;
+    font-size:8.5px;
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:0;
+    text-align:center;
+  }
+  .dismantle-card-desc{
+    display:none !important;
+  }
+}
+
+@media (max-width:420px){
+  .dismantle-heading{
+    top:clamp(100px, 17vh, 140px);
+    left:0;
+    right:0;
+    margin-inline:auto;
+    max-width:82vw;
+    width:max-content;
+    font-size:clamp(24px, 7.2vw, 30px);
+    text-align:center;
+  }
+  .dismantle-story{
+    --ds-card-w:58px;
+    --ds-icon:26px;
+    --ds-line-h:34px;
+  }
+  .dismantle-card-body{
+    height:70px;
+    min-height:70px;
+    max-height:70px;
+  }
+  .dismantle-card-title{ font-size:8px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .dismantle-card,
+  .dismantle-card-line,
+  .dismantle-card-dot,
+  .dismantle-card-icon-wrap,
+  .dismantle-card-body{
+    filter:none !important;
+  }
+}

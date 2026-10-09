@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products | Tel-Aqua</title>
+  <meta name="description" content="Explore the Tel-Aqua product range, including the PH02 pH + Temperature Meter and the new Tel-Aqua DO Meter.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/base.css?v=11">
+  <link rel="stylesheet" href="css/nav-footer.css?v=91">
+  <link rel="stylesheet" href="css/commerce.css?v=14">
+  <style>
+    body { background: #f5f8f8; }
+    .products-page { padding-top: 32px; }
+    .products-hero {
+      padding: 96px 0 48px;
+      background: linear-gradient(180deg, #f5f8f8 0%, #ffffff 100%);
+    }
+    .products-hero .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .product-range-head {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #f97316;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .product-range-head h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.06;
+      color: #0b2230;
+      margin: 0 0 16px;
+      letter-spacing: -0.05em;
+    }
+    .product-range-head p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.06rem;
+      color: #4f6470;
+    }
+    .range-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    .range-card {
+      background: #ffffff;
+      border: 1px solid rgba(11, 34, 48, 0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(26, 49, 61, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .range-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(26, 49, 61, 0.12);
+    }
+    .range-card__media {
+      background: linear-gradient(135deg, #eaf7f5 0%, #f5efe9 100%);
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 26px;
+      position: relative;
+    }
+    .range-card__media::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(11, 34, 48, 0.08);
+      border-radius: 22px;
+    }
+    .range-card__media img {
+      width: min(100%, 360px);
+      max-height: 232px;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+    }
+    .range-card__reference {
+      position: absolute;
+      top: 26px;
+      left: 26px;
+      z-index: 2;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(11, 34, 48, 0.78);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .range-card__content {
+      padding: 28px 28px 30px;
+    }
+    .range-card__label {
+      display: inline-flex;
+      background: rgba(249, 115, 22, 0.12);
+      color: #c95b0d;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .range-card h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 2vw, 2.3rem);
+      color: #0b2230;
+      letter-spacing: -0.04em;
+    }
+    .range-card p {
+      margin: 0 0 26px;
+      color: #4f6470;
+      line-height: 1.7;
+    }
+    .range-card__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #fa7315 0%, #ff8c3a 100%);
+      color: #fff;
+      box-shadow: 0 16px 24px rgba(250, 115, 21, 0.22);
+    }
+    .btn-secondary {
+      background: #e9f5f4;
+      color: #0b2230;
+    }
+    @media (max-width: 760px) {
+      .range-grid { grid-template-columns: 1fr; }
+      .products-hero { padding-top: 82px; }
+    }
+  </style>
+</head>
+<body class="products-page">
+  <header class="navbar">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo" aria-label="Tel-Aqua home"><img src="assets/images/logo.png" alt="Tel-Aqua Logo"></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="how-to-calibrate.html">Calibrate &amp; Care</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">BULK ORDER</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="cart.html" class="btn btn-primary nav-buy">ORDER NOW</a>
+        <a href="account.html" class="icon-btn profile-icon-link" aria-label="Account"><i class="fa-regular fa-user"></i></a>
+        <a href="cart.html" class="icon-btn cart-icon-link" aria-label="Cart"><img class="nav-cart-icon" src="assets/images/icons/cart-bag.png?v=2" alt="" width="24" height="24"></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="products-hero" aria-labelledby="products-heading">
+      <div class="container">
+        <div class="product-range-head">
+          <span class="eyebrow">Tel-Aqua Range</span>
+          <h1 id="products-heading">OUR PRODUCTS</h1>
+          <p>Smart water-quality testing tools designed for aquaculture.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="range-grid" aria-label="Tel-Aqua product cards">
+      <article class="range-card">
+        <div class="range-card__media">
+          <img src="assets/images/products/product-front.png" alt="Tel-Aqua PH02 meter">
+        </div>
+        <div class="range-card__content">
+          <span class="range-card__label">PH02</span>
+          <h2>Tel-Aqua PH02</h2>
+          <p>pH + Temperature Meter</p>
+          <div class="range-card__actions">
+            <a class="btn btn-primary" href="product.html">VIEW PH02</a>
+            <button type="button" class="btn btn-secondary" data-buy-now data-product-id="telaqua-ph-meter">BUY NOW</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="range-card">
+        <div class="range-card__media">
+          <img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO meter">
+        </div>
+        <div class="range-card__content">
+          <span class="range-card__label">DO</span>
+          <h2>Tel-Aqua DO Meter</h2>
+          <p>Dissolved Oxygen Meter</p>
+          <p class="range-card__disclaimer">Official Tel-Aqua DO meter product image.</p>
+          <div class="range-card__actions">
+            <a class="btn btn-primary" href="do-meter.html">VIEW DO METER</a>
+            <button type="button" class="btn btn-secondary" data-buy-now data-product-id="telaqua-do-meter">BUY NOW</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="assets/images/brand/tel-aqua-logo-footer.png?v=2" alt="Tel-Aqua Logo" width="260" height="106"></a>
+          <p>A simple, accurate digital Tel-Aqua pH meter, built for shrimp and fish farmers.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="product.html">PH02</a>
+            <a href="do-meter.html">DO Meter</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="returns-warranty.html">Replacement &amp; Warranty Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Tel-Aqua. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/i18n.js?v=5"></script>
+  <script src="js/products.js?v=cart-products-3"></script>
+  <script src="js/cart.js?v=cart-products-3"></script>
+  <script src="js/main.js?v=cart-products-3"></script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+/* Tel-Aqua — Certified & Trusted + Trusted-farmers pill (banner) */
+
+.hero,
+.hero-slide,
+.cal-hero-banner,
+.about-hero,
+.contact-hero{
+  position:relative;
+}
+
+/* Legacy right-side card — permanently removed */
+.ta-trust-badge{
+  display:none !important;
+}
+
+/* Trusted-by pill — above banner heading (matches reference: white + orange solid) */
+.ta-trust-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  max-width:100%;
+  margin:0 0 12px;
+  padding:8px 16px 8px 10px;
+  border-radius:999px;
+  border:1.5px solid #F97316;
+  background:#fff;
+  color:#0A2D63;
+  line-height:1.2;
+  pointer-events:none;
+  user-select:none;
+  z-index:7;
+  box-sizing:border-box;
+}
+
+.ta-trust-pill__icon{
+  flex:0 0 auto;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#F97316;
+  color:#fff;
+  font-size:11px;
+}
+
+.ta-trust-pill__text{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:#0A2D63;
+}
+
+.hero-slide-copy--left .ta-trust-pill,
+.about-hero-copy .ta-trust-pill,
+.cal-hero-banner-copy .ta-trust-pill{
+  align-self:flex-start;
+}
+
+.hero-slide--first .hero-slide-copy--left .ta-trust-pill,
+.about-hero-copy .ta-trust-pill,
+.cal-hero-banner-copy .ta-trust-pill{
+  margin-bottom:10px;
+}
+
+.hero-slide-copy--left .ta-cert-banner-slot,
+.about-hero-copy .ta-cert-banner-slot,
+.cal-hero-banner-copy .ta-cert-banner-slot,
+.contact-hero-copy .ta-cert-banner-slot{
+  margin-left:0;
+}
+
+/* Certified & Trusted — sits under banner heading text */
+.ta-cert-banner-slot{
+  position:relative;
+  z-index:7;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  margin-top:18px;
+  pointer-events:auto;
+}
+
+.hero-slide .ta-cert-banner-slot,
+.hero .ta-cert-banner-slot{
+  margin-top:20px;
+}
+
+.about-hero-copy .ta-cert-banner-slot,
+.contact-hero-copy .ta-cert-banner-slot,
+.cal-hero-banner-copy .ta-cert-banner-slot{
+  margin-top:16px;
+}
+
+/* Certified pill — white + teal dashed border + teal check (reference match) */
+.ta-cert-trigger{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px 8px 10px;
+  border-radius:999px;
+  border:1.5px dashed #28bcbf;
+  background:#fff;
+  color:#0A2D63;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  line-height:1.2;
+  cursor:pointer;
+  box-shadow:none;
+  transition:transform .25s ease, border-color .2s ease, box-shadow .25s ease;
+}
+
+.ta-cert-trigger__icon{
+  flex:0 0 auto;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#28bcbf;
+  color:#fff;
+  font-size:11px;
+}
+
+.ta-cert-trigger i{
+  color:inherit;
+  font-size:inherit;
+}
+
+.ta-cert-trigger:hover{
+  transform:translateY(-1px);
+  border-color:#0A2D63;
+  box-shadow:0 8px 18px rgba(10,45,99,.08);
+}
+
+@media (max-width:768px){
+  /* Mobile: same pill style, centered above heading */
+  .ta-trust-pill{
+    display:inline-flex !important;
+    width:auto;
+    max-width:min(340px, 94vw);
+    margin:0 auto 6px;
+    padding:7px 12px 7px 8px;
+    gap:6px;
+  }
+
+  .ta-trust-pill__icon,
+  .ta-cert-trigger__icon{
+    width:18px;
+    height:18px;
+    font-size:9px;
+  }
+
+  .ta-trust-pill__text{
+    font-size:9px;
+    letter-spacing:0.03em;
+  }
+
+  .hero-slide-copy--left .ta-trust-pill,
+  .about-hero-copy .ta-trust-pill,
+  .cal-hero-banner-copy .ta-trust-pill,
+  .contact-hero-copy .ta-trust-pill{
+    align-self:center;
+    margin-bottom:4px;
+    margin-left:0;
+  }
+
+  /* Tight gap heading → Certified & Trusted on all mobile banners */
+  .ta-cert-banner-slot,
+  .hero-slide .ta-cert-banner-slot,
+  .hero .ta-cert-banner-slot,
+  .about-hero-copy .ta-cert-banner-slot,
+  .cal-hero-banner-copy .ta-cert-banner-slot,
+  .cal-hero-banner .ta-cert-banner-slot,
+  .contact-hero-copy .ta-cert-banner-slot,
+  html[data-lang="hi"] .hero-slide .ta-cert-banner-slot,
+  html[data-lang="hi"] .hero .ta-cert-banner-slot,
+  html[data-lang="te"] .hero-slide .ta-cert-banner-slot,
+  html[data-lang="te"] .hero .ta-cert-banner-slot{
+    justify-content:center;
+    margin-top:4px;
+    margin-left:0;
+    width:100%;
+  }
+
+  .ta-cert-trigger{
+    font-size:10px;
+    padding:7px 12px 7px 8px;
+    gap:6px;
+  }
+}
+
+/* ---------- Modal shell ---------- */
+.ta-cert-overlay{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(10,45,99,.45);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease, visibility .25s ease;
+}
+
+.ta-cert-overlay.is-open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.ta-cert-modal{
+  position:relative;
+  width:min(100%, 420px);
+  max-height:min(90vh, 640px);
+  overflow:auto;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 24px 64px rgba(10,45,99,.28);
+  transform:translateY(12px) scale(.98);
+  transition:transform .25s ease;
+}
+
+.ta-cert-overlay.is-open .ta-cert-modal{
+  transform:none;
+}
+
+.ta-cert-modal--wide{
+  width:min(100%, 920px);
+}
+
+.ta-cert-modal__head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:18px 20px 8px;
+}
+
+.ta-cert-modal__title{
+  margin:0;
+  font-size:1.05rem;
+  font-weight:800;
+  color:#0A2D63;
+}
+
+.ta-cert-modal__close{
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:rgba(10,45,99,.06);
+  color:#0A2D63;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ta-cert-modal__body{
+  padding:8px 20px 22px;
+}
+
+.ta-cert-mini{
+  text-align:center;
+  padding:8px 8px 4px;
+}
+
+.ta-cert-mini__icon{
+  width:64px;
+  height:64px;
+  margin:8px auto 14px;
+  border-radius:50%;
+  background:rgba(40,188,191,.12);
+  color:#28bcbf;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+.ta-cert-mini__heading{
+  margin:0 0 8px;
+  font-size:1.15rem;
+  font-weight:800;
+  color:#0A2D63;
+  line-height:1.3;
+}
+
+.ta-cert-mini__text{
+  margin:0 0 18px;
+  font-size:.92rem;
+  line-height:1.5;
+  color:#5b6475;
+}
+
+.ta-cert-mini__cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  min-height:48px;
+  border:0;
+  border-radius:999px;
+  background:#28bcbf;
+  color:#fff;
+  font-weight:700;
+  font-size:.95rem;
+  cursor:pointer;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.ta-cert-mini__cta:hover{
+  background:#1fa8ab;
+  transform:translateY(-1px);
+}
+
+.ta-cert-grid-sub{
+  margin:0 0 14px;
+  color:#5b6475;
+  font-size:.9rem;
+}
+
+.ta-cert-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 16px;
+}
+
+.ta-cert-tab{
+  border:1px solid rgba(10,45,99,.12);
+  background:#f7fafc;
+  color:#0A2D63;
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.ta-cert-tab.is-active{
+  background:#28bcbf;
+  border-color:#28bcbf;
+  color:#fff;
+}
+
+.ta-cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+  gap:12px;
+}
+
+.ta-cert-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(10,45,99,.1);
+  background:#fff;
+  text-align:left;
+  cursor:pointer;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.ta-cert-card:hover{
+  border-color:#28bcbf;
+  box-shadow:0 10px 24px rgba(40,188,191,.15);
+  transform:translateY(-2px);
+}
+
+.ta-cert-card__thumb{
+  aspect-ratio:3 / 4;
+  border-radius:10px;
+  background:linear-gradient(160deg, #e8f7f8 0%, #f4f7fb 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#28bcbf;
+  font-size:34px;
+  border:1px solid rgba(40,188,191,.2);
+}
+
+.ta-cert-card__name{
+  margin:0;
+  font-size:.85rem;
+  font-weight:800;
+  color:#0A2D63;
+  line-height:1.3;
+}
+
+.ta-cert-card__meta{
+  margin:0;
+  font-size:.72rem;
+  color:#6b7280;
+}
+
+.ta-cert-footer{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 18px;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid rgba(10,45,99,.08);
+}
+
+.ta-cert-footer span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:.75rem;
+  font-weight:600;
+  color:#5b6475;
+}
+
+.ta-cert-footer i{color:#28bcbf;}
+
+.ta-cert-detail{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:18px;
+  align-items:start;
+}
+
+@media (max-width:720px){
+  .ta-cert-detail{
+    grid-template-columns:1fr;
+  }
+}
+
+.ta-cert-detail__preview{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(10,45,99,.1);
+  background:#f4f7fb;
+  min-height:320px;
+}
+
+.ta-cert-detail__preview iframe{
+  width:100%;
+  height:min(62vh, 520px);
+  border:0;
+  background:#fff;
+}
+
+.ta-cert-detail__meta h3{
+  margin:0 0 6px;
+  font-size:1.15rem;
+  color:#0A2D63;
+}
+
+.ta-cert-detail__meta p{
+  margin:0 0 10px;
+  color:#5b6475;
+  font-size:.9rem;
+  line-height:1.45;
+}
+
+.ta-cert-detail__list{
+  list-style:none;
+  margin:0 0 16px;
+  padding:0;
+}
+
+.ta-cert-detail__list li{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(10,45,99,.06);
+  font-size:.85rem;
+}
+
+.ta-cert-detail__list span{color:#6b7280;}
+.ta-cert-detail__list strong{color:#0A2D63;text-align:right;}
+
+.ta-cert-detail__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.ta-cert-download{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  padding:0 18px;
+  border-radius:999px;
+  background:#28bcbf;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.9rem;
+}
+
+.ta-cert-download:hover{background:#1fa8ab;}
+
+.ta-cert-back{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(10,45,99,.15);
+  background:#fff;
+  color:#0A2D63;
+  font-weight:700;
+  font-size:.9rem;
+  cursor:pointer;
+}

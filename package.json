@@ -1,0 +1,17 @@
+{
+  "name": "telaqua-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Tel-Aqua static site server for Hostinger Web Apps",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node -e \"console.log('No frontend build — static HTML')\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}

@@ -1,0 +1,62 @@
+:root{
+  /* ===== Brand palette (fixed by brief) ===== */
+  --bg:#FFFFFF;
+  --orange:#FA7315;
+  --orange-hover:#E56612;
+  --heading:#111827;
+  --body:#6B7280;
+  --light:#F8F8F8;
+  --label:#5DB7C2;
+
+  /* ===== Supporting deep-water tones (dark sections only) ===== */
+  --navy:#0E2A32;
+  --navy-deep:#081A20;
+  --teal:#5DB7C2;
+  --mist:#DCEEEA;
+
+  /* ===== Type — Manrope only ===== */
+  --font: 'Manrope', sans-serif;
+  --font-hero: 'Manrope', sans-serif;
+
+  --weight-body: 400;
+  --weight-body-strong: 500;
+  --weight-nav: 600;
+  --weight-card: 700;
+  --weight-heading: 800;
+  --weight-hero: 800;
+  --weight-price: 800;
+  --weight-label: 600;
+
+  --tracking-tight: -0.02em;
+  --tracking-body: 0;
+  --tracking-label: 0.1em;
+
+  --leading-hero: 1.08;
+  --leading-heading: 1.12;
+  --leading-body: 1.65;
+
+  /* ===== Hero banner heading (shared) ===== */
+  --hero-heading-navy: #0B2545;
+  --hero-heading-accent: var(--orange);
+  /* Legacy alias — accent line is brand orange (not teal) */
+  --hero-heading-teal: var(--hero-heading-accent);
+  --hero-heading-weight: 800;
+  --hero-heading-tracking: -0.015em;
+  --hero-heading-leading: 1.08;
+
+  /* ===== Scale ===== */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 12px rgba(17,24,39,0.06);
+  --shadow-md: 0 12px 40px rgba(17,24,39,0.08);
+  --shadow-lg: 0 24px 70px rgba(17,24,39,0.12);
+  --shadow-orange: 0 14px 34px rgba(250,115,21,0.35);
+
+  --section-y: clamp(56px, 8vw, 110px);
+  --container: 1240px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
