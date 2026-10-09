@@ -255,7 +255,7 @@
       ${statusHtml()}
       <div class="account-links">
         <a href="contact.html">Need help? Contact us</a>
-        <a href="index.html#order">Shop pH meter</a>
+        <a href="ph-meter.html#order">Shop pH meter</a>
       </div>
     </div>
   `;

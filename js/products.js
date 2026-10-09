@@ -36,7 +36,7 @@
         'Accuracy': '±0.02 pH',
         'Use case': 'Shrimp and fish ponds'
       },
-      url: 'index.html#pricing'
+      url: 'ph-meter.html#pricing'
     },
     {
       id: 'telaqua-do-meter',

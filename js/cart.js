@@ -551,7 +551,7 @@
     }
 
     const orderLink = event.target.closest(
-      'a.js-order-link, a.nav-buy, a.floating-buy, a.mobile-sticky-buy__cta, a[href="#order"], a[href="#pricing"], a[href="index.html#order"], a[href="index.html#pricing"]'
+      'a.js-order-link, a.nav-buy, a.floating-buy, a.mobile-sticky-buy__cta, a[href="#order"], a[href="#pricing"], a[href="ph-meter.html#order"], a[href="ph-meter.html#pricing"]'
     );
     if(orderLink){
       if(orderLink.matches('a.nav-buy[href="products.html"]')) return;

@@ -979,7 +979,7 @@ function initOrderLinks(){
   document.addEventListener('click', (event) => {
     if(event.defaultPrevented) return;
     const link = event.target.closest(
-      'a.js-order-link, a.nav-buy, a.floating-buy, a.mobile-sticky-buy__cta, a[href="#order"], a[href="#pricing"], a[href="index.html#order"], a[href="index.html#pricing"], a[href="checkout.html"].js-order-link, a[href="checkout.html"].nav-buy'
+      'a.js-order-link, a.nav-buy, a.floating-buy, a.mobile-sticky-buy__cta, a[href="#order"], a[href="#pricing"], a[href="ph-meter.html#order"], a[href="ph-meter.html#pricing"], a[href="checkout.html"].js-order-link, a[href="checkout.html"].nav-buy'
     );
     if(!link) return;
 
@@ -991,8 +991,8 @@ function initOrderLinks(){
       link.classList.contains('mobile-sticky-buy__cta') ||
       href === '#order' ||
       href === '#pricing' ||
-      href.endsWith('index.html#order') ||
-      href.endsWith('index.html#pricing');
+      href.endsWith('ph-meter.html#order') ||
+      href.endsWith('ph-meter.html#pricing');
     if(!isPurchaseCta) return;
     if(link.matches('a.nav-buy[href="products.html"]')) return;
     const productId = link.dataset.productId;
@@ -1019,7 +1019,7 @@ function scrollToOurStorySection(){
 function initOurStoryLinks(){
   document.addEventListener('click', (event) => {
     const link = event.target.closest(
-      'a[href="#our-story"], a[href="about.html#our-story"], a[href="index.html#our-story"]'
+      'a[href="#our-story"], a[href="about.html#our-story"], a[href="ph-meter.html#our-story"]'
     );
     if(!link) return;
 
@@ -1032,7 +1032,7 @@ function initOurStoryLinks(){
       return;
     }
 
-    if(href === 'index.html#our-story' || href === '#our-story'){
+    if(href === 'ph-meter.html#our-story' || href === '#our-story'){
       event.preventDefault();
       location.href = 'about.html#our-story';
     }
@@ -1073,7 +1073,7 @@ function scrollToFaqSection(hashId){
 function initFaqLinks(){
   document.addEventListener('click', (event) => {
     const link = event.target.closest(
-      'a[href="#faq"], a[href="#faq-list"], a[href="index.html#faq"], a[href="index.html#faq-list"]'
+      'a[href="#faq"], a[href="#faq-list"], a[href="ph-meter.html#faq"], a[href="ph-meter.html#faq-list"]'
     );
     if(!link) return;
 
@@ -1089,7 +1089,7 @@ function initFaqLinks(){
 
     /* Other pages: always land on homepage FAQ */
     event.preventDefault();
-    location.href = wantsList ? 'index.html#faq-list' : 'index.html#faq';
+    location.href = wantsList ? 'ph-meter.html#faq-list' : 'ph-meter.html#faq';
   });
 
   if(location.hash === '#faq' || location.hash === '#faq-list'){

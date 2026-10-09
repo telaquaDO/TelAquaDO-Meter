@@ -318,9 +318,8 @@
       const page = currentPage();
       const allowed = page === 'product.html'
         || page === 'do-meter.html'
-        || page === 'index.html'
-        || page === 'index'
-        || page === '';
+        || page === 'ph-meter.html'
+        || page === 'ph-meter';
       if(!allowed) return;
       const productId = page === 'do-meter.html' ? DO_PRODUCT_ID : PH_PRODUCT_ID;
       const product = window.TelAquaProducts?.getById?.(productId);

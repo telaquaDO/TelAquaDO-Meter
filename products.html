@@ -3,271 +3,350 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Products | Tel-Aqua</title>
-  <meta name="description" content="Explore the Tel-Aqua product range, including the PH02 pH + Temperature Meter and the new Tel-Aqua DO Meter.">
+  <title>Store | Tel-Aqua</title>
+  <meta name="description" content="Shop the Tel-Aqua range: the PH02 pH meter and the Tel-Aqua DO Meter, built for shrimp and fish farmers.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/base.css?v=11">
   <link rel="stylesheet" href="css/nav-footer.css?v=91">
   <link rel="stylesheet" href="css/commerce.css?v=14">
-  <style>
-    body { background: #f5f8f8; }
-    .products-page { padding-top: 32px; }
-    .products-hero {
-      padding: 96px 0 48px;
-      background: linear-gradient(180deg, #f5f8f8 0%, #ffffff 100%);
-    }
-    .products-hero .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .product-range-head {
-      text-align: center;
-      margin-bottom: 42px;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #f97316;
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-    .product-range-head h1 {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.06;
-      color: #0b2230;
-      margin: 0 0 16px;
-      letter-spacing: -0.05em;
-    }
-    .product-range-head p {
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 1.06rem;
-      color: #4f6470;
-    }
-    .range-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-    }
-    .range-card {
-      background: #ffffff;
-      border: 1px solid rgba(11, 34, 48, 0.08);
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(26, 49, 61, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .range-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 28px 60px rgba(26, 49, 61, 0.12);
-    }
-    .range-card__media {
-      background: linear-gradient(135deg, #eaf7f5 0%, #f5efe9 100%);
-      min-height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 26px;
-      position: relative;
-    }
-    .range-card__media::before {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border: 1px solid rgba(11, 34, 48, 0.08);
-      border-radius: 22px;
-    }
-    .range-card__media img {
-      width: min(100%, 360px);
-      max-height: 232px;
-      object-fit: contain;
-      position: relative;
-      z-index: 1;
-    }
-    .range-card__reference {
-      position: absolute;
-      top: 26px;
-      left: 26px;
-      z-index: 2;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(11, 34, 48, 0.78);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .range-card__content {
-      padding: 28px 28px 30px;
-    }
-    .range-card__label {
-      display: inline-flex;
-      background: rgba(249, 115, 22, 0.12);
-      color: #c95b0d;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 7px 12px;
-      border-radius: 999px;
-      margin-bottom: 16px;
-    }
-    .range-card h2 {
-      margin: 0 0 10px;
-      font-size: clamp(1.7rem, 2vw, 2.3rem);
-      color: #0b2230;
-      letter-spacing: -0.04em;
-    }
-    .range-card p {
-      margin: 0 0 26px;
-      color: #4f6470;
-      line-height: 1.7;
-    }
-    .range-card__actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-      cursor: pointer;
-    }
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #fa7315 0%, #ff8c3a 100%);
-      color: #fff;
-      box-shadow: 0 16px 24px rgba(250, 115, 21, 0.22);
-    }
-    .btn-secondary {
-      background: #e9f5f4;
-      color: #0b2230;
-    }
-    @media (max-width: 760px) {
-      .range-grid { grid-template-columns: 1fr; }
-      .products-hero { padding-top: 82px; }
-    }
-  </style>
+<!-- GA-HEAD -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/apple.css?v=1">
+<!-- /GA-HEAD -->
 </head>
-<body class="products-page">
-  <header class="navbar">
-    <div class="container">
-      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="logo" aria-label="Tel-Aqua home"><img src="assets/images/logo.png" alt="Tel-Aqua Logo"></a>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="products.html" class="active">Products</a>
-        <a href="how-to-calibrate.html">Calibrate &amp; Care</a>
-        <a href="about.html">Our Story</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">BULK ORDER</a>
-      </nav>
-      <div class="nav-cta">
-        <a href="cart.html" class="btn btn-primary nav-buy">ORDER NOW</a>
-        <a href="account.html" class="icon-btn profile-icon-link" aria-label="Account"><i class="fa-regular fa-user"></i></a>
-        <a href="cart.html" class="icon-btn cart-icon-link" aria-label="Cart"><img class="nav-cart-icon" src="assets/images/icons/cart-bag.png?v=2" alt="" width="24" height="24"></a>
+<body class="ap-store products-page">
+<!-- GA-NAV:START (generated by scripts/apply-apple-chrome.js) -->
+<nav class="ga-nav" aria-label="Global">
+  <div class="ga-nav__inner">
+    <a href="index.html" class="ga-nav__logo" aria-label="Tel-Aqua home" data-i18n-aria-label="nav.homeAria"><img src="assets/images/logo.png" alt="Tel-Aqua - Lab in your Pocket" data-i18n-alt="nav.logoAlt" width="64" height="26"></a>
+    <ul class="ga-nav__list">
+      <li class="ga-nav__item" data-flyout="store"><a class="ga-nav__link" href="products.html" data-page="products" aria-haspopup="true" aria-expanded="false">Store</a></li>
+      <li class="ga-nav__item" data-flyout="ph02"><a class="ga-nav__link" href="ph-meter.html" data-page="ph-meter product" aria-haspopup="true" aria-expanded="false">PH02</a></li>
+      <li class="ga-nav__item" data-flyout="do"><a class="ga-nav__link" href="do-meter.html" data-page="do-meter" aria-haspopup="true" aria-expanded="false">DO Meter</a></li>
+      <li class="ga-nav__item" data-flyout="care"><a class="ga-nav__link" href="how-to-calibrate.html" data-page="how-to-calibrate" data-i18n="nav.howToCalibrate" aria-haspopup="true" aria-expanded="false">Calibrate &amp; Care</a></li>
+      <li class="ga-nav__item"><a class="ga-nav__link" href="shrimp-farming.html" data-page="shrimp-farming">Shrimp Farming</a></li>
+      <li class="ga-nav__item"><a class="ga-nav__link" href="fish-farming.html" data-page="fish-farming">Fish Farming</a></li>
+      <li class="ga-nav__item" data-flyout="story"><a class="ga-nav__link" href="about.html" data-page="about" data-i18n="nav.ourStory" aria-haspopup="true" aria-expanded="false">Our Story</a></li>
+      <li class="ga-nav__item" data-flyout="support"><a class="ga-nav__link" href="contact.html" data-page="contact" data-i18n="nav.contact" aria-haspopup="true" aria-expanded="false">Contact</a></li>
+      <li class="ga-nav__item"><a class="ga-nav__link" href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">Bulk Order</a></li>
+    </ul>
+    <div class="ga-nav__tools">
+      <a href="products.html" class="ga-nav__icon search-btn" aria-label="Search products"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
+      <button type="button" class="ga-nav__icon lang-btn" aria-label="Change language" data-i18n-aria-label="nav.changeLanguage"><img src="assets/images/icons/language.png" alt="" width="17" height="17"></button>
+      <a href="account.html" class="ga-nav__icon profile-icon-link" aria-label="Account" data-i18n-aria-label="nav.account"><i class="fa-regular fa-user" aria-hidden="true"></i></a>
+      <a href="cart.html" class="ga-nav__icon cart-icon-link" aria-label="Cart" data-i18n-aria-label="nav.cart"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></a>
+      <button type="button" class="ga-nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="ga-flyout" data-flyout="store">
+    <div class="ga-flyout__inner">
+      <div class="ga-flyout__group ga-flyout__group--primary">
+        <h6>Shop</h6>
+        <ul>
+          <li><a href="products.html">Shop all products</a></li>
+          <li><a href="ph-meter.html">Tel-Aqua PH02</a></li>
+          <li><a href="do-meter.html">Tel-Aqua DO Meter</a></li>
+          <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">Bulk order</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Quick links</h6>
+        <ul>
+          <li><a href="cart.html">Your bag</a></li>
+          <li><a href="account.html">Order status</a></li>
+          <li><a href="returns-warranty.html">Replacement &amp; Warranty</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Shop by farm</h6>
+        <ul>
+          <li><a href="shrimp-farming.html">Shrimp farming</a></li>
+          <li><a href="fish-farming.html">Fish farming</a></li>
+        </ul>
       </div>
     </div>
-  </header>
-
-  <main>
-    <section class="products-hero" aria-labelledby="products-heading">
-      <div class="container">
-        <div class="product-range-head">
-          <span class="eyebrow">Tel-Aqua Range</span>
-          <h1 id="products-heading">OUR PRODUCTS</h1>
-          <p>Smart water-quality testing tools designed for aquaculture.</p>
-        </div>
+  </div>
+  <div class="ga-flyout" data-flyout="ph02">
+    <div class="ga-flyout__inner">
+      <div class="ga-flyout__group ga-flyout__group--primary">
+        <h6>Explore PH02</h6>
+        <ul>
+          <li><a href="ph-meter.html">Explore PH02</a></li>
+          <li><a href="why-telaqua.html">Why Tel-Aqua</a></li>
+          <li><a href="ph-meter.html#pricing">Buy PH02</a></li>
+        </ul>
       </div>
-    </section>
+      <div class="ga-flyout__group">
+        <h6>Use &amp; care</h6>
+        <ul>
+          <li><a href="how-to-calibrate.html">Calibrate &amp; Care</a></li>
+          <li><a href="ph-meter.html#faq">FAQs</a></li>
+          <li><a href="returns-warranty.html">Replacement &amp; Warranty</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Made for</h6>
+        <ul>
+          <li><a href="shrimp-farming.html">Shrimp farming</a></li>
+          <li><a href="fish-farming.html">Fish farming</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ga-flyout" data-flyout="do">
+    <div class="ga-flyout__inner">
+      <div class="ga-flyout__group ga-flyout__group--primary">
+        <h6>Explore DO Meter</h6>
+        <ul>
+          <li><a href="do-meter.html">Explore DO Meter</a></li>
+          <li><a href="do-meter.html#do-features-title">Features</a></li>
+          <li><a href="do-meter.html#do-specs-title">Tech specs</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Shop</h6>
+        <ul>
+          <li><a href="products.html">Buy DO Meter</a></li>
+          <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">Bulk order</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Compare</h6>
+        <ul>
+          <li><a href="index.html#compare">PH02 vs DO Meter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ga-flyout" data-flyout="care">
+    <div class="ga-flyout__inner">
+      <div class="ga-flyout__group ga-flyout__group--primary">
+        <h6>Calibrate &amp; Care</h6>
+        <ul>
+          <li><a href="how-to-calibrate.html">Calibration guide</a></li>
+          <li><a href="how-to-calibrate.html#calibration-care-tips">Care tips</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Need help?</h6>
+        <ul>
+          <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20need%20help%20with%20my%20meter." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ga-flyout" data-flyout="story">
+    <div class="ga-flyout__inner">
+      <div class="ga-flyout__group ga-flyout__group--primary">
+        <h6>About Tel-Aqua</h6>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html#mission">Mission</a></li>
+          <li><a href="why-telaqua.html">Why Tel-Aqua</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ga-flyout" data-flyout="support">
+    <div class="ga-flyout__inner">
+      <div class="ga-flyout__group ga-flyout__group--primary">
+        <h6>Support</h6>
+        <ul>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20need%20help%20with%20my%20meter." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+          <li><a href="how-to-calibrate.html">Calibration help</a></li>
+        </ul>
+      </div>
+      <div class="ga-flyout__group">
+        <h6>Orders</h6>
+        <ul>
+          <li><a href="account.html">Your account</a></li>
+          <li><a href="returns-warranty.html">Replacement &amp; Warranty</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ga-mobile">
+    <ul class="ga-mobile__main">
+        <li><a href="products.html">Store</a></li>
+        <li><a href="ph-meter.html">PH02</a></li>
+        <li><a href="do-meter.html">DO Meter</a></li>
+        <li><a href="how-to-calibrate.html" data-i18n="nav.howToCalibrate">Calibrate &amp; Care</a></li>
+        <li><a href="shrimp-farming.html">Shrimp Farming</a></li>
+        <li><a href="fish-farming.html">Fish Farming</a></li>
+        <li><a href="about.html" data-i18n="nav.ourStory">Our Story</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">Bulk Order</a></li>
+    </ul>
+    <ul class="ga-mobile__sub">
+      <li><h6>Quick links</h6></li>
+      <li><a href="cart.html">Your bag</a></li>
+      <li><a href="account.html">Account &amp; orders</a></li>
+      <li><a href="returns-warranty.html">Replacement &amp; Warranty</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- GA-NAV:END -->
 
-    <section class="range-grid" aria-label="Tel-Aqua product cards">
-      <article class="range-card">
-        <div class="range-card__media">
-          <img src="assets/images/products/product-front.png" alt="Tel-Aqua PH02 meter">
+<main>
+  <section class="st-hero" aria-labelledby="store-title">
+    <h1 id="store-title">Store.<span>The best way to buy the Tel-Aqua meters you love.</span></h1>
+    <div class="st-hero__help">
+      Need help choosing?
+      <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20need%20help%20choosing%20a%20meter." target="_blank" rel="noopener noreferrer">Chat with a Tel-Aqua specialist ›</a>
+      <a href="index.html#compare">Compare meters ›</a>
+    </div>
+  </section>
+
+  <section class="st-section" aria-labelledby="store-latest">
+    <h2 id="store-latest">The latest. <span>Take a look at what's new right now.</span></h2>
+    <div class="st-cards">
+      <article class="st-card">
+        <div class="st-card__copy">
+          <p class="st-card__eyebrow">Bestseller</p>
+          <h3>Tel-Aqua PH02</h3>
+          <p class="st-card__desc">pH meter. Pocket-sized, waterproof, ±0.02 pH accuracy.</p>
         </div>
-        <div class="range-card__content">
-          <span class="range-card__label">PH02</span>
-          <h2>Tel-Aqua PH02</h2>
-          <p>pH + Temperature Meter</p>
-          <div class="range-card__actions">
-            <a class="btn btn-primary" href="product.html">VIEW PH02</a>
-            <button type="button" class="btn btn-secondary" data-buy-now data-product-id="telaqua-ph-meter">BUY NOW</button>
+        <a class="st-card__media" href="ph-meter.html" aria-label="Explore Tel-Aqua PH02"><img src="assets/images/products/product-front.png" alt="Tel-Aqua PH02 pH meter" decoding="async"></a>
+        <div class="st-card__foot">
+          <span class="st-card__price" data-price-for="telaqua-ph-meter" data-price-prefix="From ">From ₹2,999</span>
+          <div class="st-card__actions">
+            <a class="ap-link" href="ph-meter.html">Learn more</a>
+            <button type="button" class="ap-btn ap-btn--md" data-buy-now data-product-id="telaqua-ph-meter">Buy</button>
           </div>
         </div>
       </article>
 
-      <article class="range-card">
-        <div class="range-card__media">
-          <img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO meter">
+      <article class="st-card">
+        <div class="st-card__copy">
+          <p class="st-card__eyebrow">New</p>
+          <h3>Tel-Aqua DO Meter</h3>
+          <p class="st-card__desc">Dissolved oxygen meter for everyday pond monitoring.</p>
         </div>
-        <div class="range-card__content">
-          <span class="range-card__label">DO</span>
-          <h2>Tel-Aqua DO Meter</h2>
-          <p>Dissolved Oxygen Meter</p>
-          <p class="range-card__disclaimer">Official Tel-Aqua DO meter product image.</p>
-          <div class="range-card__actions">
-            <a class="btn btn-primary" href="do-meter.html">VIEW DO METER</a>
-            <button type="button" class="btn btn-secondary" data-buy-now data-product-id="telaqua-do-meter">BUY NOW</button>
+        <a class="st-card__media" href="do-meter.html" aria-label="Explore Tel-Aqua DO Meter" style="background:#0b0b0d;margin:16px 16px 20px;border-radius:14px;"><img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO meter" decoding="async" style="border-radius:10px;"></a>
+        <div class="st-card__foot">
+          <span class="st-card__price" data-price-for="telaqua-do-meter" data-price-prefix="From ">From ₹1,500</span>
+          <div class="st-card__actions">
+            <a class="ap-link" href="do-meter.html">Learn more</a>
+            <button type="button" class="ap-btn ap-btn--md" data-buy-now data-product-id="telaqua-do-meter">Buy</button>
           </div>
         </div>
       </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="logo"><img src="assets/images/brand/tel-aqua-logo-footer.png?v=2" alt="Tel-Aqua Logo" width="260" height="106"></a>
-          <p>A simple, accurate digital Tel-Aqua pH meter, built for shrimp and fish farmers.</p>
-        </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>Company</h4>
-            <a href="about.html">Our Story</a>
-            <a href="contact.html">Contact</a>
-          </div>
-          <div class="footer-col">
-            <h4>Products</h4>
-            <a href="product.html">PH02</a>
-            <a href="do-meter.html">DO Meter</a>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="returns-warranty.html">Replacement &amp; Warranty Policy</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Tel-Aqua. All rights reserved.</span>
-      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/i18n.js?v=5"></script>
+  <section class="st-section" aria-labelledby="store-help">
+    <h2 id="store-help">Help is here. <span>Whenever and however you need it.</span></h2>
+    <div class="st-help">
+      <a class="ap-value" href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20need%20help%20with%20my%20meter." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><h3>Chat with a specialist on WhatsApp.</h3><p>Get help choosing or using your meter.</p></a>
+      <a class="ap-value" href="how-to-calibrate.html"><i class="fa-solid fa-sliders" aria-hidden="true"></i><h3>Calibrate &amp; care, step by step.</h3><p>Guides and videos for accurate readings.</p></a>
+      <a class="ap-value" href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i><h3>Buying for a farm group or shop?</h3><p>Message us for bulk pricing.</p></a>
+    </div>
+  </section>
+
+  <section class="st-section" aria-labelledby="store-diff">
+    <h2 id="store-diff">The Tel-Aqua difference. <span>Even more reasons to shop with us.</span></h2>
+    <div class="st-help">
+      <div class="ap-value"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i><h3>Fast &amp; secure delivery</h3><p>Quick shipping across India.</p></div>
+      <div class="ap-value"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><h3>Certified product</h3><p>Tested for accuracy and reliability.</p></div>
+      <a class="ap-value" href="returns-warranty.html"><i class="fa-solid fa-rotate" aria-hidden="true"></i><h3>Replacement &amp; warranty</h3><p>Read the policy before you buy.</p></a>
+      <a class="ap-value" href="account.html"><i class="fa-regular fa-user" aria-hidden="true"></i><h3>Track your order</h3><p>Sign in to see your order status.</p></a>
+    </div>
+  </section>
+</main>
+
+<!-- GA-FOOTER:START (generated by scripts/apply-apple-chrome.js) -->
+<footer class="ga-footer" aria-labelledby="ga-footer-label">
+  <div class="ga-footer__inner">
+    <h2 id="ga-footer-label" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Tel-Aqua footer</h2>
+    <div class="ga-footer__notes">
+      <p><strong data-i18n="footer.note.label">Please Note:</strong> <span data-i18n="footer.note.body" data-i18n-html><strong>Storage solution is not included</strong> with this product. Keep your electrode healthy with pH 4.00 buffer solution.</span> <span data-i18n="footer.note.accent">Available at aqua supply shops and online.</span></p>
+      <p data-i18n="footer.tagline">A simple, accurate digital Tel-Aqua pH meter, built for shrimp and fish farmers.</p>
+    </div>
+    <div class="ga-footer__trust" aria-label="Trust highlights">
+      <div class="footer-trust-item"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><div><strong data-i18n="footer.certifiedTitle">Certified Product</strong><span data-i18n="footer.certifiedDesc">Tested for accuracy and reliability</span></div></div>
+      <a class="footer-trust-item footer-trust-item--cert" href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer" aria-label="Bulk Order on WhatsApp" data-i18n-aria-label="footer.bulkOrderAria"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><div><strong data-i18n="footer.supportTitle">Bulk Order</strong><span data-i18n="footer.supportDesc">Message us on WhatsApp for bulk pricing</span></div></a>
+      <div class="footer-trust-item"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i><div><strong data-i18n="footer.deliveryTitle">Fast &amp; Secure Delivery</strong><span data-i18n="footer.deliveryDesc">Quick shipping across India</span></div></div>
+    </div>
+    <div class="ga-footer__crumb"><a href="index.html" aria-label="Tel-Aqua home"><img src="assets/images/logo.png" alt="Tel-Aqua" width="40" height="16"></a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Lab in your Pocket</span></div>
+    <nav class="ga-footer__dirs" aria-label="Footer">
+      <div class="ga-footer__col">
+        <h3>Shop and Learn</h3>
+        <ul>
+          <li><a href="products.html">Store</a></li>
+          <li><a href="ph-meter.html">Tel-Aqua PH02</a></li>
+          <li><a href="do-meter.html">Tel-Aqua DO Meter</a></li>
+          <li><a href="index.html#compare">Compare meters</a></li>
+          <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">Bulk order</a></li>
+        </ul>
+      </div>
+      <div class="ga-footer__col">
+        <h3>Use &amp; Care</h3>
+        <ul>
+          <li><a href="how-to-calibrate.html">Calibrate &amp; Care</a></li>
+          <li><a href="ph-meter.html#faq">FAQs</a></li>
+          <li><a href="why-telaqua.html">Why Tel-Aqua</a></li>
+        </ul>
+        <h3>Account</h3>
+        <ul>
+          <li><a href="account.html">Your account</a></li>
+          <li><a href="cart.html">Your bag</a></li>
+        </ul>
+      </div>
+      <div class="ga-footer__col">
+        <h3>For Farmers</h3>
+        <ul>
+          <li><a href="shrimp-farming.html">Shrimp farming</a></li>
+          <li><a href="fish-farming.html">Fish farming</a></li>
+        </ul>
+      </div>
+      <div class="ga-footer__col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20need%20help%20with%20my%20meter." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+          <li><a href="returns-warranty.html">Replacement &amp; Warranty</a></li>
+        </ul>
+      </div>
+      <div class="ga-footer__col">
+        <h3>About Tel-Aqua</h3>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html#mission">Mission</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="ga-footer__more">
+      More ways to shop: <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order.%20Please%20share%20the%20bulk%20pricing%20and%20order%20details." target="_blank" rel="noopener noreferrer">message us on WhatsApp</a> or call <a href="tel:+918977591115">+91 89775 91115</a>.
+      <span class="ga-footer__social" style="display:inline-flex;margin-left:12px;vertical-align:middle;" aria-label="Social media">
+        <a href="https://www.facebook.com/profile.php?id=61592807670537#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/telaqua_in/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/channel/UC-n4YJI9yzsUhIcRaScwMig" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/company/telaqua-in" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      </span>
+    </div>
+    <div class="ga-footer__legal">
+      <span data-i18n="footer.copyright">&copy; 2026 Tel-Aqua. All rights reserved.</span>
+      <nav aria-label="Legal"><a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a><a href="returns-warranty.html" data-i18n="footer.terms">Replacement &amp; Warranty Policy</a><a href="contact.html">Contact</a></nav>
+      <span class="ga-footer__country">India</span>
+    </div>
+  </div>
+</footer>
+<!-- GA-FOOTER:END -->
+
+  <script src="js/api-config.js?v=1"></script>
+  <script src="js/i18n.js?v=9"></script>
   <script src="js/products.js?v=cart-products-3"></script>
+  <script src="js/tracking.js?v=cart-products-3"></script>
+  <script src="js/promo.js?v=10"></script>
   <script src="js/cart.js?v=cart-products-3"></script>
+  <script src="js/search.js?v=commerce-2"></script>
   <script src="js/main.js?v=cart-products-3"></script>
+<script src="js/apple-nav.js?v=1" defer></script>
 </body>
 </html>
