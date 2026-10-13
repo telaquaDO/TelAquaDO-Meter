@@ -1,332 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tel-Aqua DO Meter | Dissolved Oxygen Monitoring</title>
-  <meta name="description" content="Tel-Aqua DO Meter for dissolved oxygen monitoring in aquaculture. Learn how dissolved oxygen supports pond water-quality decisions.">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/base.css?v=11">
-  <link rel="stylesheet" href="css/nav-footer.css?v=91">
-  <link rel="stylesheet" href="css/product.css?v=9">
-  <style>
-    body {
-      background: #f5f8f8;
-      color: #1b2a33;
-    }
-    .do-meter-page .page-hero {
-      padding-top: 110px;
-      padding-bottom: 30px;
-      background: linear-gradient(180deg, #edf8f8 0%, #ffffff 42%, #f8f9fb 100%);
-    }
-    .do-meter-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 44px;
-      align-items: center;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(249, 115, 22, 0.12);
-      color: #c95b0d;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .page-hero h1 {
-      font-size: clamp(2.6rem, 5vw, 4.7rem);
-      line-height: 0.96;
-      letter-spacing: -0.06em;
-      margin: 0 0 18px;
-      color: #0b2230;
-    }
-    .page-hero p.lead {
-      font-size: 1.08rem;
-      line-height: 1.75;
-      max-width: 620px;
-      color: #41525d;
-      margin: 0 0 28px;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: linear-gradient(135deg, #fa7315 0%, #ff8d3f 100%);
-      color: #fff;
-      box-shadow: 0 18px 28px rgba(250, 115, 21, 0.18);
-    }
-    .btn-secondary {
-      background: #e7f5f3;
-      color: #0b2230;
-    }
-    .hero-meta {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: #476170;
-      font-size: 0.93rem;
-      font-weight: 600;
-    }
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 430px;
-    }
-    .meter-card {
-      position: relative;
-      width: min(90%, 420px);
-      aspect-ratio: 0.72;
-      border-radius: 36px;
-      background: linear-gradient(160deg, #0d2c3b 0%, #184560 100%);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 28px 68px rgba(4, 21, 30, 0.24);
-      overflow: hidden;
-    }
-    .meter-card::before {
-      content: "";
-      position: absolute;
-      inset: 18px 24px 18px 24px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .meter-screen {
-      position: absolute;
-      inset: 90px 70px 110px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #fefff1 0%, #dfeef6 100%);
-      border: 4px solid rgba(90,130,145,0.35);
-      box-shadow: inset 0 0 0 6px rgba(27,42,51,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0b2230;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-      text-transform: uppercase;
-    }
-    .meter-screen span {
-      display: block;
-      transform: translateY(-2px);
-    }
-    .meter-probe {
-      position: absolute;
-      left: 50%;
-      bottom: 22px;
-      width: 44%;
-      height: 120px;
-      transform: translateX(-50%);
-      border-radius: 24px 24px 32px 32px;
-      background: linear-gradient(180deg, #e4e5e7 0%, #bfc6cc 100%);
-      box-shadow: inset 0 0 0 8px rgba(16, 24, 35, 0.12);
-    }
-    .meter-probe::before {
-      content: "";
-      position: absolute;
-      inset: 22px 22px auto 22px;
-      height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #b9d6d3 0%, #d8f0ee 100%);
-    }
-    .do-meter-image-wrap {
-      position: relative;
-      width: min(100%, 500px);
-      background: linear-gradient(180deg, #f4f9f9 0%, #f8f9fb 100%);
-      border: 1px solid rgba(11,34,48,0.08);
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      box-shadow: 0 20px 48px rgba(11,34,48,0.06);
-    }
-    .do-meter-image-caption {
-      max-width: 440px;
-      margin: 12px auto 0;
-      color: #687c86;
-      text-align: center;
-      font-size: 0.76rem;
-      line-height: 1.5;
-    }
-    .do-meter-main-image {
-      width: 100%;
-      max-width: 470px;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 18px 32px rgba(11,34,48,0.12));
-    }
-    .page-section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 44px 20px 30px;
-    }
-    .section-head {
-      margin-bottom: 26px;
-    }
-    .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.05em;
-      margin: 0 0 12px;
-      color: #0b2230;
-    }
-    .section-head p {
-      max-width: 780px;
-      margin: 0;
-      color: #435d6d;
-      line-height: 1.8;
-      font-size: 1.04rem;
-    }
-    .intro-grid,
-    .feature-grid,
-    .benefits-grid {
-      display: grid;
-      gap: 22px;
-    }
-    .intro-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .info-panel,
-    .feature-card,
-    .benefit-card {
-      background: #fff;
-      border-radius: 24px;
-      border: 1px solid rgba(11,34,48,0.08);
-      padding: 28px;
-      box-shadow: 0 20px 44px rgba(11,34,48,0.05);
-    }
-    .info-panel h3,
-    .feature-card h3,
-    .benefit-card h3 {
-      margin: 0 0 12px;
-      color: #0b2230;
-      font-size: 1.4rem;
-      letter-spacing: -0.04em;
-    }
-    .info-panel p,
-    .feature-card p,
-    .benefit-card p {
-      margin: 0;
-      color: #475f6d;
-      line-height: 1.8;
-    }
-    .feature-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .feature-card {
-      min-height: 200px;
-    }
-    .feature-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(11, 34, 48, 0.06);
-      color: #0b2230;
-      margin-bottom: 18px;
-      font-size: 1.2rem;
-    }
-    .benefits-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .benefit-card .step-label {
-      display: block;
-      font-size: 0.7rem;
-      font-weight: 800;
-      color: #f97316;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .flow-arrow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px 0;
-      color: #f97316;
-      font-size: 1.7rem;
-    }
-    .specs-wrap {
-      overflow: hidden;
-      border-radius: 24px;
-      background: #fff;
-      border: 1px solid rgba(11,34,48,0.08);
-      box-shadow: 0 20px 44px rgba(11,34,48,0.05);
-    }
-    .spec-row {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      padding: 22px 24px;
-      border-bottom: 1px solid rgba(11,34,48,0.06);
-    }
-    .spec-row:last-child { border-bottom: none; }
-    .spec-label {
-      font-weight: 700;
-      color: #0b2230;
-    }
-    .spec-value {
-      color: #4d6370;
-    }
-    .quote-note {
-      margin-top: 22px;
-      padding: 18px 22px;
-      background: rgba(249,115,22,0.08);
-      border-left: 4px solid #f97316;
-      border-radius: 14px;
-      color: #2d4b5d;
-      line-height: 1.7;
-    }
-    @media (max-width: 900px) {
-      .do-meter-layout,
-      .intro-grid,
-      .feature-grid,
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-      .spec-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-    }
-  </style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K65HB64W');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tel-Aqua DO Meter | Dissolved Oxygen Meter for Shrimp &amp; Fish Farmers</title>
+<meta name="description" content="Tel-Aqua DO Meter: fast dissolved oxygen checks for shrimp and fish ponds. Know your oxygen, run aerators with confidence and protect your crop.">
+<link rel="canonical" href="https://www.telaqua.in/do-meter.html">
+<meta property="og:title" content="Tel-Aqua DO Meter | Know your oxygen">
+<meta property="og:description" content="Fast dissolved oxygen checks for shrimp and fish farmers.">
+<meta property="og:url" content="https://www.telaqua.in/do-meter.html">
+<meta property="og:type" content="product">
+<meta property="og:image" content="https://www.telaqua.in/assets/images/products/do-meter/tel-aqua-do-meter-premium.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/base.css?v=11">
+<link rel="stylesheet" href="css/nav-footer.css?v=91">
+<link rel="stylesheet" href="css/commerce.css?v=14">
 <!-- GA-HEAD -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/apple.css?v=1">
 <!-- /GA-HEAD -->
+<link rel="stylesheet" href="css/do-page.css?v=1">
 </head>
 <body class="do-meter-page">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K65HB64W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   <!-- GA-NAV:START (generated by scripts/apply-apple-chrome.js) -->
 <nav class="ga-nav" aria-label="Global">
   <div class="ga-nav__inner">
@@ -501,172 +215,265 @@
   </div>
 </nav>
 <!-- GA-NAV:END -->
+
+<!-- ===================== DO METER LOCAL NAV ===================== -->
 <nav class="lnav" aria-label="Tel-Aqua DO Meter">
   <div class="lnav__inner">
     <a class="lnav__title" href="do-meter.html">DO Meter</a>
     <div class="lnav__menu">
       <a href="do-meter.html" class="is-current">Overview</a>
-      <a href="#do-features-title">Features</a>
-      <a href="#do-specs-title">Tech Specs</a>
-      <button type="button" class="ap-btn ap-btn--sm" data-buy-now data-product-id="telaqua-do-meter">Buy</button>
+      <a href="#why-do">Why DO</a>
+      <a href="#do-specs">Specs</a>
+      <a href="#faq">FAQs</a>
+      <a href="#pricing" class="ap-btn ap-btn--sm js-order-link" data-product-id="telaqua-do-meter" style="background:#0E7490;border-color:#0E7490;">Buy</a>
     </div>
   </div>
 </nav>
 
-  <main>
-    <section class="ap-tile ap-tile--dark ap-tile--do ap-dark do-hero" aria-labelledby="do-meter-title">
-      <div class="ap-tile__copy">
-        <span class="ap-tile__eyebrow">New</span>
-        <h1 class="ap-tile__title" id="do-meter-title">Tel-Aqua DO Meter</h1>
-        <p class="ap-tile__sub">Dissolved oxygen monitoring for aquaculture.</p>
-        <p class="ap-tile__price" data-price-for="telaqua-do-meter" data-price-prefix="From ">From ₹1,500</p>
-        <div class="ap-tile__ctas">
-          <button type="button" class="ap-btn" data-buy-now data-product-id="telaqua-do-meter">Buy</button>
-          <a class="ap-btn ap-btn--ghost" href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20would%20like%20a%20bulk%20quote%20for%20the%20DO%20Meter." target="_blank" rel="noopener noreferrer">Request bulk quote</a>
-        </div>
-        <div class="do-hero__meta">
-          <span><i class="fa-solid fa-droplet"></i> Aquaculture-focused</span>
-          <span><i class="fa-solid fa-display"></i> Digital readout</span>
-          <span><i class="fa-solid fa-water"></i> Pond quality monitoring</span>
+<main class="dop" id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="ap-tile ap-tile--white do-hero" aria-labelledby="do-hero-title">
+    <div class="ap-tile__copy">
+      <span class="ap-tile__eyebrow">Tel-Aqua DO Meter</span>
+      <h1 class="ap-tile__title" id="do-hero-title">Know your <span>oxygen.</span></h1>
+      <p class="ap-tile__sub">Fast dissolved oxygen checks for shrimp and fish farmers.</p>
+      <p class="ap-tile__price" data-price-for="telaqua-do-meter" data-price-prefix="From ">From ₹1,500</p>
+      <div class="ap-tile__ctas">
+        <button type="button" class="ap-btn" data-buy-now data-product-id="telaqua-do-meter">Buy</button>
+        <a href="#why-do" class="ap-btn ap-btn--ghost">Learn more</a>
+      </div>
+      <ul class="do-hero__meta">
+        <li><i class="fa-solid fa-wind" aria-hidden="true"></i>Dissolved oxygen</li>
+        <li><i class="fa-solid fa-display" aria-hidden="true"></i>Digital readout</li>
+        <li><i class="fa-solid fa-fish" aria-hidden="true"></i>Built for aquaculture</li>
+      </ul>
+    </div>
+    <div class="do-hero__media">
+      <img src="assets/images/products/do-meter/do-meter-splash.jpg" alt="Tel-Aqua DO Meter with a water splash" decoding="async">
+      <img src="assets/images/products/do-meter/do-meter-pond.jpg" alt="Tel-Aqua DO Meter at the edge of a pond" fetchpriority="high" decoding="async">
+      <img src="assets/images/products/do-meter/do-meter-table.jpg" alt="Tel-Aqua DO Meter resting on a wet surface" decoding="async">
+    </div>
+  </section>
+
+  <!-- ===================== WHY DO MATTERS ===================== -->
+  <section class="dop-story" id="why-do" aria-labelledby="why-do-title">
+    <div class="dop-wrap dop-story__grid">
+      <div class="dop-story__media dop-reveal">
+        <img src="assets/images/products/do-meter/do-meter-pond.jpg" alt="Tel-Aqua DO Meter held over pond water" loading="lazy" decoding="async">
+        <div class="dop-story__badge">
+          <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+          <p>You can't see oxygen in water. This meter can.</p>
         </div>
       </div>
-      <div class="ap-tile__media">
-        <img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO meter" fetchpriority="high">
+      <div class="dop-reveal">
+        <span class="dop-eyebrow">Why dissolved oxygen</span>
+        <h2 class="dop-h2" id="why-do-title">Your stock breathes the water.</h2>
+        <p class="dop-lead">Dissolved oxygen is one of the most important readings in any pond. A quick check tells you whether your shrimp and fish have enough of it.</p>
+        <ul class="dop-points">
+          <li>
+            <i class="fa-regular fa-moon" aria-hidden="true"></i>
+            <div><h3>Oxygen changes overnight</h3><p>Levels often fall through the night and are lowest around dawn. Checking at the right time shows you the real picture.</p></div>
+          </li>
+          <li>
+            <i class="fa-solid fa-fan" aria-hidden="true"></i>
+            <div><h3>Run aerators with confidence</h3><p>Use readings to decide when aeration is needed, instead of guessing.</p></div>
+          </li>
+          <li>
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+            <div><h3>Healthier stock, better harvests</h3><p>Stable oxygen supports feeding and growth. Catch problems before they turn into losses.</p></div>
+          </li>
+        </ul>
       </div>
-    </section>
-    <style>
-      .do-hero.ap-tile{height:760px;font-family:var(--ap-font);}
-      .do-hero .ap-tile__title{text-transform:none;color:#f5f5f7;font-size:56px;}
-      .do-hero__meta{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:14px;color:#a1a1a6;}
-      .do-hero__meta i{color:var(--ap-brand);margin-right:6px;}
-      @media (max-width:734px){ .do-hero.ap-tile{height:640px;} .do-hero .ap-tile__title{font-size:36px;} }
-    </style>
+    </div>
+  </section>
 
-    <section class="page-section" aria-labelledby="do-intro-title">
-      <div class="section-head">
-        <h2 id="do-intro-title">Dissolved oxygen plays a key role in aquaculture water quality.</h2>
+  <!-- ===================== FEATURE SHOWCASE (dark) ===================== -->
+  <section class="dop-show" aria-labelledby="do-features-title">
+    <div class="dop-wrap">
+      <div class="dop-center dop-reveal">
+        <span class="dop-eyebrow">Features</span>
+        <h2 class="dop-h2" id="do-features-title">Simple to use. Made for the pond.</h2>
+        <p class="dop-lead">Everything you need for quick dissolved oxygen checks in the field.</p>
       </div>
-      <div class="intro-grid">
-        <div class="info-panel">
-          <h3>Product introduction</h3>
-          <p>Monitor dissolved oxygen levels in your pond and make informed water-quality decisions with the Tel-Aqua DO Meter. It is designed to support routine field checks and practical pond management decisions for aquaculture operations.</p>
+      <div class="dop-show__grid">
+        <div class="dop-show__col">
+          <div class="dop-feat dop-reveal"><i class="fa-solid fa-wind" aria-hidden="true"></i><h3>Dissolved oxygen readings</h3><p>Check DO levels in pond and tank water, right where you farm.</p></div>
+          <div class="dop-feat dop-reveal"><i class="fa-solid fa-display" aria-hidden="true"></i><h3>Clear digital display</h3><p>Easy to read at a glance, even outdoors.</p></div>
         </div>
-        <div class="info-panel">
-          <h3>Why it matters</h3>
-          <p>Dissolved oxygen is an important parameter for understanding pond water conditions. Regular monitoring can help farmers understand changes in oxygen availability and respond appropriately as part of their overall pond-management practices.</p>
+        <div class="dop-show__img dop-reveal">
+          <img src="assets/images/products/do-meter/do-meter-studio.jpg" alt="Tel-Aqua DO Meter front view" loading="lazy" decoding="async">
         </div>
-      </div>
-    </section>
-
-    <section class="page-section" aria-labelledby="do-features-title">
-      <div class="section-head">
-        <h2 id="do-features-title">Product features</h2>
-        <p>Use more specific information if it is later confirmed. Until then, the feature list below stays clear and non-misleading.</p>
-      </div>
-
-      <div class="feature-grid">
-        <article class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-droplet"></i></div>
-          <h3>Dissolved Oxygen Measurement</h3>
-          <p>Supports basic dissolved oxygen monitoring for pond and water-quality checks.</p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-display"></i></div>
-          <h3>Digital Display</h3>
-          <p>Designed for quick reading and straightforward on-site monitoring.</p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-          <h3>Portable Design</h3>
-          <p>Built for field use and practical checking across pond or tank conditions.</p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-water"></i></div>
-          <h3>Aquaculture-focused use</h3>
-          <p>Useful as part of routine water-quality observation for fish and shrimp ponds.</p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
-          <h3>Easy-to-use operation</h3>
-          <p>Simple operation helps support faster decision-making in the field.</p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-clipboard-list"></i></div>
-          <h3>[DO METER SPECIFICATION TO BE ADDED]</h3>
-          <p>Additional details such as measurement range, resolution, or accessories will be added when available.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-section" aria-labelledby="do-flow-title">
-      <div class="section-head">
-        <h2 id="do-flow-title">How it helps farmers</h2>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <span class="step-label">Measure</span>
-          <h3>MEASURE</h3>
-          <p>Check dissolved oxygen at the pond or tank location to understand current conditions.</p>
-        </div>
-        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-        <div class="benefit-card">
-          <span class="step-label">Understand</span>
-          <h3>UNDERSTAND</h3>
-          <p>Review the readings to understand how oxygen levels relate to changing water conditions.</p>
-        </div>
-        <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-        <div class="benefit-card">
-          <span class="step-label">Respond</span>
-          <h3>RESPOND</h3>
-          <p>Use the information to support informed pond-management decisions and routine monitoring.</p>
+        <div class="dop-show__col">
+          <div class="dop-feat dop-reveal"><i class="fa-solid fa-person-hiking" aria-hidden="true"></i><h3>Portable design</h3><p>Carry it from pond to pond for routine field checks.</p></div>
+          <div class="dop-feat dop-reveal"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><h3>Easy operation</h3><p>Simple controls help you get a reading and decide faster.</p></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="page-section" aria-labelledby="do-specs-title">
-      <div class="section-head">
-        <h2 id="do-specs-title">Specifications</h2>
+  <!-- ===================== HOW IT HELPS ===================== -->
+  <section class="dop-steps" aria-labelledby="do-steps-title">
+    <div class="dop-wrap">
+      <div class="dop-center dop-reveal">
+        <span class="dop-eyebrow">How it helps farmers</span>
+        <h2 class="dop-h2" id="do-steps-title">Measure. Understand. Respond.</h2>
       </div>
+      <div class="dop-steps__grid">
+        <div class="dop-step dop-reveal"><span class="dop-step__num">1</span><h3>Measure</h3><p>Dip the meter at the pond or tank and check the dissolved oxygen reading.</p></div>
+        <div class="dop-step dop-reveal"><span class="dop-step__num">2</span><h3>Understand</h3><p>Compare readings across the day and between ponds to see how oxygen is changing.</p></div>
+        <div class="dop-step dop-reveal"><span class="dop-step__num">3</span><h3>Respond</h3><p>Adjust aeration, feeding or water exchange based on what the readings show.</p></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="specs-wrap">
-        <div class="spec-row">
-          <div class="spec-label">Parameter</div>
-          <div class="spec-value">Dissolved Oxygen</div>
+  <!-- ===================== GALLERY ===================== -->
+  <section class="dop-gallery" aria-labelledby="do-gallery-title">
+    <div class="dop-wrap">
+      <div class="dop-center dop-reveal">
+        <span class="dop-eyebrow">Gallery</span>
+        <h2 class="dop-h2" id="do-gallery-title">Take a closer look.</h2>
+      </div>
+      <div class="dop-gallery__grid">
+        <figure class="dop-reveal"><img src="assets/images/products/do-meter/do-meter-splash.jpg" alt="DO Meter with water splash" loading="lazy" decoding="async"></figure>
+        <figure class="dop-reveal"><img src="assets/images/products/do-meter/do-meter-pond.jpg" alt="DO Meter by the pond" loading="lazy" decoding="async"></figure>
+        <figure class="dop-reveal is-contain"><img src="assets/images/products/do-meter/do-meter-studio.jpg" alt="DO Meter studio shot" loading="lazy" decoding="async"></figure>
+        <figure class="dop-reveal"><img src="assets/images/products/do-meter/do-meter-table.jpg" alt="DO Meter on a wet table" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section class="dop-price" id="pricing" aria-labelledby="do-pricing-title">
+    <div class="dop-price__inner dop-reveal">
+      <span class="dop-price__label">Pricing</span>
+      <h2 id="do-pricing-title">Know your <span>oxygen.</span> Protect your crop.</h2>
+      <p class="dop-price__sub">A simple dissolved oxygen meter at a farmer-friendly price.</p>
+      <p class="dop-price__amount" data-price-for="telaqua-do-meter">₹1,500</p>
+      <div class="dop-price__actions">
+        <button type="button" class="dop-price__add" data-add-to-cart data-product-id="telaqua-do-meter"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Add to cart</button>
+        <button type="button" class="dop-price__buy" data-buy-now data-product-id="telaqua-do-meter">Get it now</button>
+      </div>
+      <div class="dop-price__perks">
+        <span><i class="fa-solid fa-truck-fast" aria-hidden="true"></i>Fast delivery across India</span>
+        <span><i class="fa-solid fa-lock" aria-hidden="true"></i>Secure checkout</span>
+        <span><i class="fa-solid fa-rotate" aria-hidden="true"></i><a href="returns-warranty.html" style="color:inherit;">Replacement &amp; warranty</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPECS ===================== -->
+  <section class="dop-specs" id="do-specs" aria-labelledby="do-specs-title">
+    <div class="dop-wrap">
+      <div class="dop-reveal">
+        <span class="dop-eyebrow">Tech specs</span>
+        <h2 class="dop-h2" id="do-specs-title">Specifications</h2>
+      </div>
+      <dl class="dop-specs__grid dop-reveal">
+        <div class="dop-spec"><dt>Measures</dt><dd>Dissolved oxygen (DO)</dd></div>
+        <div class="dop-spec"><dt>Display</dt><dd>Digital</dd></div>
+        <div class="dop-spec"><dt>Design</dt><dd>Portable, handheld</dd></div>
+        <div class="dop-spec"><dt>Use</dt><dd>Shrimp &amp; fish ponds, tanks</dd></div>
+      </dl>
+      <p class="dop-specs__note dop-reveal"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Detailed range and accuracy figures will be published soon. Need them now? <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20please%20share%20the%20DO%20Meter%20specifications." target="_blank" rel="noopener noreferrer">Ask us on WhatsApp</a>.</span></p>
+    </div>
+  </section>
+
+  <!-- ===================== PAIR WITH PH02 ===================== -->
+  <section class="dop-pair" aria-labelledby="do-pair-title">
+    <div class="dop-wrap">
+      <div class="dop-pair__card dop-reveal">
+        <div>
+          <span class="dop-eyebrow">Better together</span>
+          <h2 id="do-pair-title">Pair it with PH02.</h2>
+          <p>pH tells you if your water is balanced. DO tells you if your stock can breathe. Check both for a complete picture of your pond.</p>
+          <div class="dop-pair__ctas">
+            <a href="ph-meter.html" class="ap-btn dop-pair__ph">Explore PH02</a>
+            <a href="index.html#compare" class="ap-btn ap-btn--ghost">Compare meters</a>
+          </div>
         </div>
-        <div class="spec-row">
-          <div class="spec-label">Dissolved Oxygen Range</div>
-          <div class="spec-value">[TO BE PROVIDED]</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-label">Temperature Measurement</div>
-          <div class="spec-value">[TO BE PROVIDED]</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-label">Display Type</div>
-          <div class="spec-value">[TO BE PROVIDED]</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-label">Application</div>
-          <div class="spec-value">Aquaculture pond monitoring</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-label">Pricing</div>
-          <div class="spec-value">[TO BE PROVIDED]</div>
+        <div class="dop-pair__media">
+          <img class="dop-pair__phimg" src="assets/images/products/product-hero.png" alt="Tel-Aqua PH02 pH meter" loading="lazy" decoding="async">
+          <img src="assets/images/products/do-meter/do-meter-studio.jpg" alt="Tel-Aqua DO Meter" loading="lazy" decoding="async">
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="quote-note">
-        Accurate product specifications, pricing, and included accessories will be added when the final DO Meter details are confirmed. Until then, this page keeps the information placeholder-based and avoids unsupported technical claims.
+  <!-- ===================== FAQ ===================== -->
+  <section class="dop-faq" id="faq" aria-labelledby="do-faq-title">
+    <div class="dop-wrap dop-faq__grid">
+      <div class="dop-faq__side dop-reveal">
+        <span class="dop-eyebrow">FAQ</span>
+        <h2 class="dop-h2" id="do-faq-title">Questions? Answered.</h2>
+        <p class="dop-lead">Clear answers to help you buy with confidence.</p>
+        <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20have%20a%20question%20about%20the%20DO%20Meter." class="ap-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>&nbsp; Ask on WhatsApp</a>
       </div>
-    </section>
-  </main>
+      <div class="dop-faq__list dop-reveal">
+        <details open>
+          <summary>What does the Tel-Aqua DO Meter measure?</summary>
+          <p>It measures dissolved oxygen (DO): the amount of oxygen in your pond or tank water that shrimp and fish use to breathe.</p>
+        </details>
+        <details>
+          <summary>When should I check dissolved oxygen?</summary>
+          <p>Oxygen usually drops through the night and is often lowest around dawn. Many farmers check early in the morning and again in the evening, and more often in hot or cloudy weather.</p>
+        </details>
+        <details>
+          <summary>Is it suitable for both shrimp and fish ponds?</summary>
+          <p>Yes. The DO Meter is designed for routine water-quality checks in shrimp and fish ponds and tanks.</p>
+        </details>
+        <details>
+          <summary>Do I also need a pH meter?</summary>
+          <p>pH and dissolved oxygen tell you different things about your water. Using both gives you a fuller picture. See the <a href="ph-meter.html">Tel-Aqua PH02</a>.</p>
+        </details>
+        <details>
+          <summary>Can I order in bulk?</summary>
+          <p>Yes. <a href="https://wa.me/918977591115?text=Hello%20Tel-Aqua%2C%20I%20am%20interested%20in%20placing%20a%20bulk%20order%20for%20the%20DO%20Meter." target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a> for bulk pricing for farm groups and shops.</p>
+        </details>
+        <details>
+          <summary>What about replacement and warranty?</summary>
+          <p>Read our <a href="returns-warranty.html">Replacement &amp; Warranty policy</a> before you buy, or message us with any questions.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
-  <!-- GA-FOOTER:START (generated by scripts/apply-apple-chrome.js) -->
+</main>
+
+<a href="https://wa.me/918977591115" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><img src="assets/images/icons/whatsapp.png" alt="" width="32" height="32" decoding="async"></a>
+<a href="cart.html" class="floating-buy js-order-link" data-product-id="telaqua-do-meter"><i class="fa-solid fa-bolt"></i><span>GET IT NOW</span></a>
+
+<aside class="mobile-sticky-buy" aria-label="Buy Tel-Aqua DO Meter">
+  <div class="mobile-sticky-buy__inner">
+    <div class="mobile-sticky-buy__info">
+      <img class="mobile-sticky-buy__logo" src="assets/images/logo.png" alt="" width="80" height="20" decoding="async">
+      <div class="mobile-sticky-buy__copy">
+        <div class="mobile-sticky-buy__price">
+          <span class="mobile-sticky-buy__amount" data-price-for="telaqua-do-meter">&#8377;1,500</span>
+        </div>
+        <div class="mobile-sticky-buy__deal">
+          <span class="mobile-sticky-buy__sub">Tel-Aqua DO Meter</span>
+        </div>
+      </div>
+    </div>
+    <a href="cart.html" class="mobile-sticky-buy__cta js-order-link" data-product-id="telaqua-do-meter"><span>GET IT NOW</span></a>
+  </div>
+</aside>
+
+<script>
+  /* Fade sections in as they scroll into view. Content stays visible without JS. */
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('dop-js');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll('.dop-reveal').forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+
+<!-- GA-FOOTER:START (generated by scripts/apply-apple-chrome.js) -->
 <footer class="ga-footer" aria-labelledby="ga-footer-label">
   <div class="ga-footer__inner">
     <h2 id="ga-footer-label" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Tel-Aqua footer</h2>
@@ -746,13 +553,17 @@
 </footer>
 <!-- GA-FOOTER:END -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/i18n.js?v=5"></script>
-  <script src="js/products.js?v=cart-products-3"></script>
-  <script src="js/tracking.js?v=cart-products-3"></script>
-  <script src="js/cart.js?v=cart-products-3"></script>
-  <script src="js/main.js?v=cart-products-3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/api-config.js?v=1"></script>
+<script src="js/i18n.js?v=9"></script>
+<script src="js/products.js?v=cart-products-3"></script>
+<script src="js/tracking.js?v=cart-products-3"></script>
+<script src="js/promo.js?v=10"></script>
+<script src="js/cart.js?v=cart-products-3"></script>
+<script src="js/search.js?v=commerce-2"></script>
+<script src="js/main.js?v=cart-products-3"></script>
+<script src="js/top-banner.js?v=i18n-10"></script>
 <script src="js/apple-nav.js?v=1" defer></script>
 </body>
 </html>
