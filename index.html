@@ -34,6 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/apple.css?v=1">
 <!-- /GA-HEAD -->
+<link rel="stylesheet" href="css/duo.css?v=1">
 </head>
 <body class="ap-home">
 <!-- Google Tag Manager (noscript) -->
@@ -218,49 +219,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main class="ap-main" id="main">
 
-  <!-- ===== Hero tile 1: PH02 ===== -->
-  <section class="ap-tile ap-tile--white ap-tile--ph" aria-labelledby="tile-ph02">
-    <div class="ap-tile__copy">
-      <h2 class="ap-tile__title" id="tile-ph02">Tel-Aqua PH02</h2>
-      <p class="ap-tile__sub">Lab in your pocket. Healthier stock.</p>
-      <p class="ap-tile__price" data-price-for="telaqua-ph-meter" data-price-prefix="From ">From ₹2,999</p>
-      <div class="ap-tile__ctas">
-        <a href="ph-meter.html" class="ap-btn">Learn more</a>
-        <button type="button" class="ap-btn ap-btn--ghost" data-buy-now data-product-id="telaqua-ph-meter">Buy</button>
-      </div>
-    </div>
-    <div class="ap-tile__media">
-      <img src="assets/images/products/product-hero.png" alt="Tel-Aqua PH02 pH meter in a glass of water" fetchpriority="high" decoding="async">
+  <!-- ===== Hero: PH02 + DO Meter, equal priority ===== -->
+  <section class="duo-hero" aria-labelledby="duo-title">
+    <header class="duo-hero__head">
+      <p class="duo-eyebrow"><span class="duo-eyebrow__dot" aria-hidden="true"></span>Tel-Aqua water testing</p>
+      <h1 id="duo-title">Know your <span class="duo-ph-word">pH</span>. Know your <span class="duo-do-word">oxygen</span>.</h1>
+      <p class="duo-hero__lead">Two simple meters for shrimp and fish farmers. Check the two readings that matter most, right at the pond.</p>
+    </header>
+
+    <div class="duo-cards">
+      <article class="duo-card duo-card--ph" aria-labelledby="tile-ph02">
+        <a class="duo-card__media" href="ph-meter.html" aria-label="Explore Tel-Aqua PH02">
+          <img src="assets/images/products/product-hero.png" alt="Tel-Aqua PH02 pH meter in a glass of water" fetchpriority="high" decoding="async">
+        </a>
+        <div class="duo-card__body">
+          <span class="duo-chip"><i class="fa-solid fa-flask" aria-hidden="true"></i>pH meter</span>
+          <h2 id="tile-ph02">Tel-Aqua PH02</h2>
+          <p class="duo-card__tag">Lab in your pocket. Healthier stock.</p>
+          <ul class="duo-facts">
+            <li><strong>pH 0–14</strong><span>Full range</span></li>
+            <li><strong>±0.02 pH</strong><span>When calibrated</span></li>
+            <li><strong>Waterproof</strong><span>Pocket pen</span></li>
+          </ul>
+          <div class="duo-card__foot">
+            <p class="duo-price" data-price-for="telaqua-ph-meter" data-price-prefix="From ">From ₹2,999</p>
+            <div class="duo-ctas">
+              <a href="ph-meter.html" class="ap-btn ap-btn--ghost">Learn more</a>
+              <button type="button" class="ap-btn" data-buy-now data-product-id="telaqua-ph-meter">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="duo-card duo-card--do" aria-labelledby="tile-do">
+        <a class="duo-card__media" href="do-meter.html" aria-label="Explore Tel-Aqua DO Meter">
+          <img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO Meter showing dissolved oxygen readings" fetchpriority="high" decoding="async">
+        </a>
+        <div class="duo-card__body">
+          <span class="duo-chip"><i class="fa-solid fa-wind" aria-hidden="true"></i>Dissolved oxygen meter</span>
+          <h2 id="tile-do">Tel-Aqua DO Meter</h2>
+          <p class="duo-card__tag">Know your oxygen. Improve pond balance.</p>
+          <ul class="duo-facts">
+            <li><strong>DO readings</strong><span>Pond &amp; tank water</span></li>
+            <li><strong>Digital display</strong><span>Clear, easy reading</span></li>
+            <li><strong>Portable</strong><span>Built for the field</span></li>
+          </ul>
+          <div class="duo-card__foot">
+            <p class="duo-price" data-price-for="telaqua-do-meter" data-price-prefix="From ">From ₹1,500</p>
+            <div class="duo-ctas">
+              <a href="do-meter.html" class="ap-btn ap-btn--ghost">Learn more</a>
+              <button type="button" class="ap-btn" data-buy-now data-product-id="telaqua-do-meter">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ===== Hero tile 2: DO Meter ===== -->
-  <section class="ap-tile ap-tile--dark ap-tile--do ap-dark" aria-labelledby="tile-do">
-    <div class="ap-tile__copy">
-      <span class="ap-tile__eyebrow">New</span>
-      <h2 class="ap-tile__title" id="tile-do">Tel-Aqua DO Meter</h2>
-      <p class="ap-tile__sub">Improve pond balance. Know your oxygen.</p>
-      <p class="ap-tile__price" data-price-for="telaqua-do-meter" data-price-prefix="From ">From ₹1,500</p>
-      <div class="ap-tile__ctas">
-        <a href="do-meter.html" class="ap-btn">Learn more</a>
-        <button type="button" class="ap-btn ap-btn--ghost" data-buy-now data-product-id="telaqua-do-meter">Buy</button>
+  <!-- ===== Why test both ===== -->
+  <section class="duo-why" aria-labelledby="duo-why-title">
+    <div class="duo-why__head">
+      <h2 id="duo-why-title">Two readings. One healthy pond.</h2>
+      <p>Your eyes can't see pH or oxygen. These meters can.</p>
+    </div>
+    <div class="duo-why__grid">
+      <div class="duo-why__card duo-why__card--ph">
+        <div class="duo-why__icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></div>
+        <p class="duo-why__label">pH · PH02</p>
+        <h3>Is your water balanced?</h3>
+        <p>pH changes through the day. When it swings too far, shrimp and fish feed less, grow slower and get stressed. Catch the change early with a quick dip.</p>
+        <a href="ph-meter.html" class="ap-link">Explore PH02</a>
+      </div>
+      <div class="duo-why__card duo-why__card--do">
+        <div class="duo-why__icon"><i class="fa-solid fa-wind" aria-hidden="true"></i></div>
+        <p class="duo-why__label">Dissolved oxygen · DO Meter</p>
+        <h3>Can your stock breathe?</h3>
+        <p>Oxygen in pond water often drops overnight. Regular DO checks help you decide when to run aerators, before low oxygen turns into losses.</p>
+        <a href="do-meter.html" class="ap-link">Explore DO Meter</a>
       </div>
     </div>
-    <div class="ap-tile__media">
-      <img src="assets/images/products/do-meter/tel-aqua-do-meter-premium.png" alt="Tel-Aqua DO meter — dissolved oxygen readings" loading="lazy" decoding="async">
-    </div>
-  </section>
-
-  <!-- ===== Hero tile 3: brand / story (photo) ===== -->
-  <section class="ap-tile ap-tile--photo" aria-labelledby="tile-story">
-    <div class="ap-tile__bg"><img src="assets/images/about/about-story-enhanced.png" alt="" loading="lazy" decoding="async"></div>
-    <div class="ap-tile__copy">
-      <h2 class="ap-tile__title" id="tile-story">Know your water.</h2>
-      <p class="ap-tile__sub">Built with farmers, for farmers — before it costs you a crop.</p>
-      <div class="ap-tile__ctas">
-        <a href="about.html" class="ap-btn">Our story</a>
-        <a href="products.html" class="ap-btn ap-btn--ghost" style="color:#fff;border-color:#fff;">Shop all</a>
-      </div>
+    <div class="duo-why__together">
+      <i class="fa-regular fa-clock" aria-hidden="true"></i>
+      <p><strong>Better together.</strong> Test pH and DO at the same time every day for a full picture of your pond.</p>
     </div>
   </section>
 
@@ -305,13 +345,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="ap-tile ap-tile--white" aria-labelledby="tile-fish">
       <div class="ap-tile__copy">
         <h2 class="ap-tile__title" id="tile-fish">Fish Farming</h2>
-        <p class="ap-tile__sub">Healthier ponds. Better harvests.</p>
+        <p class="ap-tile__sub">Healthy oxygen. Better harvests.</p>
         <div class="ap-tile__ctas">
           <a href="fish-farming.html" class="ap-btn">Learn more</a>
           <a href="products.html" class="ap-btn ap-btn--ghost">Shop</a>
         </div>
       </div>
-      <div class="ap-tile__media"><img src="assets/images/products/product-front.png" class="ap-fill" alt="Tel-Aqua PH02 front, side and back" loading="lazy" decoding="async"></div>
+      <div class="ap-tile__media ap-tile__media--do"><img src="assets/images/products/do-meter/do-meter-main.png" class="ap-fill" alt="Tel-Aqua DO Meter for fish ponds" loading="lazy" decoding="async"></div>
     </section>
   </div>
 
@@ -319,10 +359,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ap-compare" id="compare" aria-labelledby="compare-title">
     <div class="ap-compare__head">
       <h2 id="compare-title">Which Tel-Aqua is right for you?</h2>
-      <p>Two meters. One goal — healthier ponds.</p>
+      <p>Pick one, or use both for a complete pond check.</p>
     </div>
     <div class="ap-compare__grid">
-      <div class="ap-compare__col">
+      <div class="ap-compare__col ap-compare__col--ph">
         <div class="ap-compare__img"><img src="assets/images/products/why-hero-meter.png" alt="Tel-Aqua PH02" loading="lazy"></div>
         <h3>Tel-Aqua PH02</h3>
         <p class="ap-compare__price" data-price-for="telaqua-ph-meter" data-price-prefix="From ">From ₹2,999</p>
@@ -337,8 +377,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ap-compare__row"><i class="fa-solid fa-box-open" aria-hidden="true"></i><strong>Calibration sachets</strong><span>pH 4, 6.86 and 9.18 included</span></div>
         </div>
       </div>
-      <div class="ap-compare__col">
-        <div class="ap-compare__img"><img src="assets/images/products/do-meter/do-meter-main.png" alt="Tel-Aqua DO Meter" loading="lazy" style="border-radius:14px;"></div>
+      <div class="ap-compare__col ap-compare__col--do">
+        <div class="ap-compare__img"><img src="assets/images/products/do-meter/do-meter-main.png" alt="Tel-Aqua DO Meter" loading="lazy"></div>
         <h3>Tel-Aqua DO Meter</h3>
         <p class="ap-compare__price" data-price-for="telaqua-do-meter" data-price-prefix="From ">From ₹1,500</p>
         <div class="ap-compare__ctas">
@@ -351,6 +391,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ap-compare__row"><i class="fa-solid fa-person-hiking" aria-hidden="true"></i><strong>Portable</strong><span>Built for field testing</span></div>
           <div class="ap-compare__row"><i class="fa-solid fa-fish" aria-hidden="true"></i><strong>Aquaculture-focused</strong><span>Day-to-day pond decisions</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Hero tile 3: brand / story (photo) ===== -->
+  <section class="ap-tile ap-tile--photo" aria-labelledby="tile-story">
+    <div class="ap-tile__bg"><img src="assets/images/about/about-story-enhanced.png" alt="" loading="lazy" decoding="async"></div>
+    <div class="ap-tile__copy">
+      <h2 class="ap-tile__title" id="tile-story">Know your water.</h2>
+      <p class="ap-tile__sub">Built with farmers, for farmers — before it costs you a crop.</p>
+      <div class="ap-tile__ctas">
+        <a href="about.html" class="ap-btn">Our story</a>
+        <a href="products.html" class="ap-btn ap-btn--ghost" style="color:#fff;border-color:#fff;">Shop all</a>
       </div>
     </div>
   </section>
