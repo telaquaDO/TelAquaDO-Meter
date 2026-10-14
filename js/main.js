@@ -1080,7 +1080,13 @@ function initFaqLinks(){
     const href = (link.getAttribute('href') || '').trim();
     const wantsList = href.includes('faq-list');
     const onFaqPage = !!document.getElementById('faq');
+    /* Only scroll in place when the link targets THIS page's FAQ.
+       e.g. a "PH02 FAQs" link on the DO Meter page must open ph-meter.html, not the DO FAQ. */
+    const linkPage = href.split('#')[0];
+    const herePage = (location.pathname.split('/').pop() || 'index.html');
+    const sameP = !linkPage || linkPage === herePage;
 
+    if(onFaqPage && !sameP) return;
     if(onFaqPage){
       event.preventDefault();
       scrollToFaqSection(wantsList ? 'faq-list' : 'faq');

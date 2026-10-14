@@ -111,18 +111,6 @@
 .dop-specs__note{margin-top:22px;display:flex;align-items:center;gap:12px;padding:16px 20px;border-radius:16px;background:var(--do-soft);font:400 15px/1.5 var(--ap-font);color:var(--do-ink);}
 .dop-specs__note a{color:var(--do-ink);font-weight:600;}
 
-/* ---------- Pair with PH02 ---------- */
-.dop-pair{padding:0 0 110px;}
-.dop-pair__card{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px;padding:44px 48px;border-radius:32px;
-  background:linear-gradient(115deg,#FFF3EA 0%,#F6F4F2 50%,#EAF6F9 100%);}
-.dop-pair__card h2{margin:0;font:600 38px/1.1 var(--ap-font);color:var(--ap-text);}
-.dop-pair__card p{margin:12px 0 0;font:400 18px/1.5 var(--ap-font);color:#424245;}
-.dop-pair__ctas{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;}
-.dop-pair .dop-pair__ph{background:#F97316;border-color:#F97316;}
-.dop-pair .dop-pair__ph:hover{background:#ea580c;border-color:#ea580c;}
-.dop-pair__media{display:flex;justify-content:center;align-items:flex-end;gap:18px;}
-.dop-pair__media img{height:260px;width:auto;border-radius:18px;}
-.dop-pair__media img.dop-pair__phimg{mix-blend-mode:multiply;border-radius:0;}
 
 /* ---------- FAQ ---------- */
 .dop-faq{padding:110px 0 120px;background:#F5F5F7;}
@@ -158,13 +146,12 @@ html.dop-js .dop-reveal.is-in{opacity:1;transform:none;}
   .dop-price h2{font-size:44px;}
 }
 @media (max-width:834px){
-  .dop-story__grid,.dop-faq__grid,.dop-pair__card{grid-template-columns:1fr;}
+  .dop-story__grid,.dop-faq__grid{grid-template-columns:1fr;}
   .dop-story__media{max-width:520px;aspect-ratio:4/5;}
   .dop-steps__grid{grid-template-columns:1fr;}
   .dop-step:not(:last-child)::after{display:none;}
   .dop-gallery__grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .dop-specs__grid{grid-template-columns:1fr;}
-  .dop-pair__card{background:linear-gradient(180deg,#FFF3EA 0%,#F6F4F2 50%,#EAF6F9 100%);}
 }
 @media (max-width:734px){
   .dop-wrap{padding:0 16px;}
@@ -182,10 +169,6 @@ html.dop-js .dop-reveal.is-in{opacity:1;transform:none;}
   .dop-price h2{font-size:34px;}
   .dop-price__amount{font-size:52px;}
   .dop-price__actions button{width:100%;}
-  .dop-pair{padding-bottom:72px;}
-  .dop-pair__card{padding:30px 22px;}
-  .dop-pair__card h2{font-size:30px;}
-  .dop-pair__media img{height:200px;}
   .dop-faq summary{font-size:16px;}
 }
 @media (prefers-reduced-motion:reduce){

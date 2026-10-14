@@ -251,23 +251,7 @@ body.ap-home{background:#fff;font-family:var(--ap-font);color:var(--ap-text);}
 .ap-tile__media--cover{padding:0 !important;}
 .ap-tile__media--cover img{width:100%;height:100%;max-height:none !important;object-fit:cover;}
 
-/* "Which Tel-Aqua is right for you?" compare */
-.ap-compare{background:#fff;padding:90px 22px 100px;text-align:center;}
-.ap-compare__head{max-width:980px;margin:0 auto 44px;}
-.ap-compare__head h2{font-size:48px;line-height:1.08;font-weight:600;margin:0;color:var(--ap-text);}
-.ap-compare__head p{margin:14px 0 0;font-size:21px;color:var(--ap-text-2);}
-.ap-compare__grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;}
-.ap-compare__col{display:flex;flex-direction:column;align-items:center;}
-.ap-compare__img{height:260px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:24px;}
-.ap-compare__img img{max-height:260px;max-width:100%;object-fit:contain;}
-.ap-compare__col h3{font-size:24px;font-weight:600;margin:0;color:var(--ap-text);}
-.ap-compare__col .ap-compare__price{margin:8px 0 18px;font-size:17px;color:var(--ap-text);}
-.ap-compare__ctas{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:30px;}
-.ap-compare__rows{width:100%;max-width:300px;border-top:1px solid #d2d2d7;}
-.ap-compare__row{padding:22px 0;border-bottom:1px solid #d2d2d7;}
-.ap-compare__row i{display:block;font-size:30px;color:var(--ap-text);margin-bottom:10px;}
-.ap-compare__row strong{display:block;font-size:17px;font-weight:600;color:var(--ap-text);}
-.ap-compare__row span{display:block;margin-top:4px;font-size:14px;color:var(--ap-text-2);}
+
 
 /* Value strip (store-style "why buy") */
 .ap-values{background:var(--ap-tile);padding:80px 22px;}
@@ -302,14 +286,6 @@ a.ap-value{display:block;text-decoration:none;color:inherit;}
   .ap-grid{grid-template-columns:1fr;padding:0;}
   .ap-grid .ap-tile{height:500px;}
   .ap-grid .ap-tile__title{font-size:32px;}
-  .ap-compare{padding:64px 16px 72px;}
-  .ap-compare__head h2{font-size:32px;}
-  .ap-compare__head p{font-size:17px;}
-  .ap-compare__grid{gap:18px;}
-  .ap-compare__img{height:170px;}
-  .ap-compare__img img{max-height:170px;}
-  .ap-compare__col h3{font-size:19px;}
-  .ap-compare__ctas{flex-direction:column;gap:10px;}
   .ap-values{padding:60px 16px;}
   .ap-values h2{font-size:28px;}
   .ap-values__grid{grid-template-columns:1fr;}
@@ -430,7 +406,7 @@ header.navbar,footer.site-footer,.nav-drawer-overlay{display:none !important;}
 .ap-grid .ap-tile__media img{max-height:100%;height:auto;}
 
 /* ---------- fixes v2: deterministic tile media sizing ---------- */
-section.ap-tile,section.ap-compare,section.ap-values,section.st-hero,section.st-section{padding-left:0;padding-right:0;}
+section.ap-tile,section.ap-values,section.st-hero,section.st-section{padding-left:0;padding-right:0;}
 section.ap-tile{padding:0 !important;margin:0;}
 .ap-tile__media{position:relative;flex:1 1 auto;min-height:0;width:100%;}
 .ap-tile .ap-tile__media img{
