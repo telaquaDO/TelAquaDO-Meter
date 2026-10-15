@@ -11,7 +11,7 @@
 
   /* 1. arrows */
   document.querySelectorAll('[data-shelf]').forEach(function(shelf){
-    var track = shelf.querySelector('[data-shelf-track]');
+    var track = shelf.querySelector('[data-shelf-track]');  /* arrows may sit in the section heading */
     var prev = shelf.querySelector('[data-shelf-prev]');
     var next = shelf.querySelector('[data-shelf-next]');
     if(!track) return;

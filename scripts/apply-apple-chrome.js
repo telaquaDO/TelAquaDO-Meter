@@ -149,7 +149,7 @@ const pages = fs.readdirSync(root).filter(f => f.endsWith('.html') && !SKIP.has(
 const HEAD_TAGS = `<!-- GA-HEAD -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/apple.css?v=1">
+<link rel="stylesheet" href="css/apple.css?v=3">
 <!-- /GA-HEAD -->`;
 const SCRIPT_TAG = '<script src="js/apple-nav.js?v=1" defer></script>';
 

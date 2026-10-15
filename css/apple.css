@@ -438,3 +438,19 @@ section.ap-tile{padding:0 !important;margin:0;}
 .st-card__price,.st-card__actions .ap-link{white-space:nowrap;}
 
 .ga-nav__icon .cart-badge.is-empty{display:none !important;}
+
+/* Global nav + announcement bar sit in normal flow now, so the old fixed-header
+   offset on .hero (home.css) left a white gap under the bar. */
+body.page-with-banner .hero,body .hero,.cal-page .hero.cal-hero-banner{margin-top:0 !important;}
+@media (max-width:768px){
+  body .hero{height:calc(100dvh - var(--ap-nav-h) - var(--banner-height, 40px) - 68px - env(safe-area-inset-bottom, 0px));}
+}
+
+/* Show the full product photo in the Calibrate & Care and Our Story heroes:
+   size the banner to the photo's own proportions instead of cropping it. */
+@media (min-width:769px){
+  .cal-page .hero.cal-hero-banner{aspect-ratio:1798 / 875;height:auto;max-height:none;min-height:0;}
+  .cal-page .cal-hero-banner .cal-hero-banner-photo{object-fit:cover;object-position:center center;}
+  .page-our-story .hero.about-hero-banner{aspect-ratio:1672 / 941;height:auto;max-height:none;min-height:0;}
+  .page-our-story .hero.about-hero-banner .about-hero-photo{top:0;height:100%;object-fit:cover;object-position:center center;}
+}
