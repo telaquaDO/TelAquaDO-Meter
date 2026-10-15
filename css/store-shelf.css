@@ -1,0 +1,135 @@
+/* =====================================================================
+   store-shelf.css — Apple Store–style promo shelves under each product
+   (products.html). Horizontal, snap-scrolling "Get to know" cards.
+   Uses tokens from apple.css (--ap-*) and duo.css (--duo-*).
+   ===================================================================== */
+
+/* ---------- product icon nav (like apple.com/in/store) ---------- */
+.st-pnav{max-width:1024px;margin:0 auto;padding:0 22px 8px;display:flex;gap:34px;overflow-x:auto;scrollbar-width:none;font-family:var(--ap-font);}
+.st-pnav::-webkit-scrollbar{display:none;}
+.st-pnav__item{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--ap-text);font:500 14px/1.2 var(--ap-font);}
+.st-pnav__img{width:84px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:16px;transition:transform .3s cubic-bezier(0,0,.5,1);}
+.st-pnav__img img{max-height:60px;max-width:80px;object-fit:contain;}
+.st-pnav__img--ph{background:var(--duo-ph-soft);} .st-pnav__img--ph img{mix-blend-mode:multiply;}
+.st-pnav__img--do{background:var(--duo-do-soft);} .st-pnav__img--do img{border-radius:6px;}
+.st-pnav__img--icon{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06);font-size:24px;color:var(--ap-text-2);}
+.st-pnav__item:hover .st-pnav__img{transform:translateY(-3px);}
+.st-pnav__item:hover span:last-child{color:var(--ap-link);}
+
+/* ---------- product block ---------- */
+.st-prod{padding-top:56px;}
+.st-prod h2{scroll-margin-top:70px;}
+
+/* ---------- shelf ---------- */
+.sh{max-width:1024px;margin:38px auto 0;font-family:var(--ap-font);}
+.sh__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:6px;}
+.sh__head h3{margin:0;font:600 24px/1.16 var(--ap-font);color:var(--ap-text);}
+.st-prod--ph .sh__head h3{color:var(--duo-ph-ink);}
+.st-prod--do .sh__head h3{color:var(--duo-do-ink);}
+.sh__nav{display:flex;gap:10px;}
+.sh__btn{width:36px;height:36px;border-radius:50%;border:0;background:rgba(210,210,215,.64);color:var(--ap-text);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;transition:background .2s,opacity .2s;}
+.sh__btn:hover{background:rgba(210,210,215,.95);}
+.sh__btn:disabled{opacity:.35;cursor:default;}
+/* track bleeds to the right edge like Apple's shelves */
+.sh__track{list-style:none;margin:0;padding:22px 4px 34px;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.sh__track::-webkit-scrollbar{display:none;}
+
+/* ---------- cards ---------- */
+.sh-card{position:relative;flex:0 0 372px;height:500px;border-radius:18px;overflow:hidden;scroll-snap-align:start;background:#fff;
+  box-shadow:2px 4px 12px rgba(0,0,0,.08);transition:opacity .6s ease,transform .45s cubic-bezier(0,0,.5,1),box-shadow .45s cubic-bezier(0,0,.5,1);}
+.sh-js .sh-card{opacity:0;transform:translateY(24px);}   /* hidden only when JS can reveal it */
+.sh-js .sh-card.is-in{opacity:1;transform:none;}
+.sh-card:hover{transform:scale(1.015);box-shadow:2px 4px 18px rgba(0,0,0,.16);}
+.sh-card__link{position:relative;display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ap-text);}
+.sh-card__copy{position:relative;z-index:2;padding:30px 30px 0;}
+.sh-card__eyebrow{margin:0 0 6px;font:600 12px/1.3 var(--ap-font);letter-spacing:.02em;text-transform:uppercase;color:var(--ap-text-2);}
+.sh-card h4{margin:0;font:600 28px/1.14 var(--ap-font);letter-spacing:.007em;color:inherit;}
+.sh-card__copy > p:last-child{margin:8px 0 0;font:400 17px/1.35 var(--ap-font);color:var(--ap-text-2);}
+.sh-card__note{position:absolute;left:30px;bottom:18px;margin:0;font:400 11px/1 var(--ap-font);color:var(--ap-text-3);z-index:2;}
+
+/* full-bleed media (image / video) with gradient for legibility */
+.sh-card__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform 1.2s cubic-bezier(0,0,.5,1);}
+.sh-card:hover .sh-card__bg{transform:scale(1.05);}
+.sh-card--media .sh-card__link::after,.sh-card--video .sh-card__link::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.55) 26%,rgba(255,255,255,0) 48%);}
+.sh-card--dark .sh-card__link::after{background:linear-gradient(180deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.35) 30%,rgba(0,0,0,0) 55%);}
+.sh-card--dark .sh-card__link{color:#f5f5f7;}
+.sh-card--dark .sh-card__eyebrow,.sh-card--dark .sh-card__copy > p:last-child{color:rgba(245,245,247,.82);}
+.sh-card--dark{background:#0b0b0d;}
+
+/* video play badge */
+.sh-card__play{position:absolute;right:22px;bottom:22px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);
+  color:#1d1d1f;display:flex;align-items:center;justify-content:center;font-size:14px;transition:transform .3s;}
+.sh-card--video.is-playing .sh-card__play i::before{content:"\f04c";}  /* pause glyph while playing */
+.sh-card:hover .sh-card__play{transform:scale(1.08);}
+
+/* foreground product image at the bottom */
+.sh-card__fg{margin:auto auto 0;display:block;max-width:80%;max-height:290px;object-fit:contain;transition:transform .8s cubic-bezier(0,0,.5,1);}
+.sh-card--ph .sh-card__fg{mix-blend-mode:multiply;}
+.sh-card--do .sh-card__fg{max-height:300px;border-radius:14px 14px 0 0;box-shadow:0 -10px 40px rgba(8,47,73,.18);}
+.sh-card__fg--wide{max-width:94%;margin-bottom:40px;}
+.sh-card:hover .sh-card__fg{transform:translateY(-6px);}
+.sh-card--light{background:#fff;}
+
+/* tinted product cards */
+.sh-card--stat.sh-card--ph,.sh-card--icon.sh-card--ph,.sh-card--live.sh-card--ph{background:linear-gradient(180deg,#fff 0%,var(--duo-ph-soft) 100%);}
+.sh-card--stat.sh-card--do,.sh-card--icon.sh-card--do{background:linear-gradient(180deg,#fff 0%,var(--duo-do-soft) 100%);}
+.sh-stat{font-size:64px !important;line-height:1 !important;letter-spacing:-.02em !important;margin-top:6px !important;}
+.sh-card--ph .sh-stat{color:var(--duo-ph);}
+.sh-card--do .sh-stat{color:var(--duo-do);}
+.sh-stat small{font-size:.6em;color:var(--ap-text-3);}
+
+/* big icon */
+.sh-card__icon{margin:auto auto 70px;width:150px;height:150px;border-radius:40px;display:flex;align-items:center;justify-content:center;font-size:68px;color:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,.14);transition:transform .5s cubic-bezier(0,0,.5,1);}
+.sh-card--ph .sh-card__icon{background:linear-gradient(135deg,#FB923C,#EA580C);}
+.sh-card--do .sh-card__icon{background:linear-gradient(135deg,#25D366,#128C7E);}
+.sh-card:hover .sh-card__icon{transform:rotate(-6deg) scale(1.05);}
+
+/* ---------- animated "live" meter display ---------- */
+.sh-card--live.sh-card--do{background:radial-gradient(120% 90% at 50% 100%,#0E7490 0%,#062A35 70%);}
+.sh-lcd{margin:auto auto 64px;width:210px;padding:26px 18px 22px;border-radius:28px;text-align:center;font-family:var(--ap-font);position:relative;}
+.sh-lcd--ph{background:#1b1b1b;border:10px solid #F97316;box-shadow:0 24px 50px rgba(234,88,12,.28);}
+.sh-lcd--ph .sh-lcd__value{color:#A3E635;text-shadow:0 0 18px rgba(163,230,53,.45);}
+.sh-lcd--do{background:#0a0f12;border:10px solid #1f2933;box-shadow:0 0 0 2px #F97316 inset,0 24px 60px rgba(0,0,0,.45);}
+.sh-lcd--do .sh-lcd__value{color:#e0f7ff;text-shadow:0 0 18px rgba(103,232,249,.5);}
+.sh-lcd__label{display:block;font:600 15px/1 var(--ap-font);color:#9ca3af;letter-spacing:.08em;}
+.sh-lcd__value{display:block;margin:10px 0 8px;font:600 64px/1 "SF Mono",ui-monospace,Menlo,Consolas,monospace;letter-spacing:-.02em;transition:opacity .25s,transform .25s;}
+.sh-lcd__value.is-swap{opacity:0;transform:translateY(8px);}
+.sh-lcd__unit{display:block;font:500 14px/1.2 var(--ap-font);color:#9ca3af;}
+.sh-lcd__bar{display:block;height:4px;margin:14px auto 0;width:70%;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;}
+.sh-lcd__bar i{display:block;height:100%;width:60%;background:linear-gradient(90deg,#22c55e,#67e8f9);border-radius:4px;transition:width .6s cubic-bezier(0,0,.5,1);}
+.sh-card--live.sh-card--do .sh-card__note{color:rgba(255,255,255,.45);}
+.sh-card--live:hover .sh-lcd{transform:translateY(-4px);} .sh-lcd{transition:transform .5s cubic-bezier(0,0,.5,1);}
+
+/* ---------- responsive ---------- */
+@media (max-width:734px){
+  .st-pnav{gap:22px;padding:0 16px 4px;}
+  .st-pnav__img{width:70px;height:54px;}
+  .st-prod{padding-top:40px;}
+  .sh{margin-top:26px;}
+  .sh__head h3{font-size:21px;}
+  .sh__nav{display:none;}                     /* swipe on phones */
+  .sh__track{gap:14px;padding:16px 2px 26px;scroll-padding-left:2px;}
+  .sh-card{flex-basis:84%;max-width:320px;height:440px;}
+  .sh-card__copy{padding:24px 24px 0;}
+  .sh-card h4{font-size:24px;}
+  .sh-stat{font-size:52px !important;}
+  .sh-lcd{width:180px;margin-bottom:54px;}
+  .sh-lcd__value{font-size:52px;}
+  .sh-card__icon{width:120px;height:120px;font-size:54px;margin-bottom:60px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-card,.sh-card.is-in{opacity:1;transform:none;transition:none;}
+  .sh-card__bg,.sh-card__fg,.sh-lcd,.sh-card__icon{transition:none;}
+}
+
+/* side gutters on tablets/phones (apple.css zeroes them for st-sections) */
+@media (max-width:1068px){
+  main section.st-hero,main section.st-section{padding-left:16px;padding-right:16px;}
+  .st-pnav{padding-left:16px;padding-right:16px;}
+  /* let the shelf bleed to the screen edges, like Apple */
+  .sh__track{margin:0 -16px;padding-left:16px;padding-right:16px;scroll-padding-left:16px;}
+}

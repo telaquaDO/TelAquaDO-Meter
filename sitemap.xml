@@ -32,22 +32,10 @@
   </url>
 
   <url>
-    <loc>https://www.telaqua.in/fish-farming.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.telaqua.in/shrimp-farming.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
     <loc>https://www.telaqua.in/product.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url><loc>https://www.telaqua.in/ph-meter.html</loc></url>
-</urlset>
+</urlset>

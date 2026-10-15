@@ -15,12 +15,12 @@ const MENU = [
   { id:'store', label:'Store', href:'products.html', page:'products', groups:[
     { title:'Shop', primary:true, links:[['Shop all products','products.html'],['Tel-Aqua PH02','ph-meter.html'],['Tel-Aqua DO Meter','do-meter.html'],['Bulk order',WA_BULK,true]] },
     { title:'Quick links', links:[['Your bag','cart.html'],['Order status','account.html'],['Replacement & Warranty','returns-warranty.html']] },
-    { title:'Shop by farm', links:[['Shrimp farming','shrimp-farming.html'],['Fish farming','fish-farming.html']] }
+    { title:'Explore', links:[['Calibrate & Care','how-to-calibrate.html'],['Our Story','about.html']] }
   ]},
   { id:'ph02', label:'PH02', href:'ph-meter.html', page:'ph-meter product', groups:[
-    { title:'Explore PH02', primary:true, links:[['Explore PH02','ph-meter.html'],['Why Tel-Aqua','why-telaqua.html'],['Buy PH02','ph-meter.html#pricing']] },
+    { title:'Explore PH02', primary:true, links:[['Explore PH02','ph-meter.html'],['Why Tel-Aqua','why-telaqua.html']] },
     { title:'Use & care', links:[['Calibrate & Care','how-to-calibrate.html'],['PH02 FAQs','ph-meter.html#faq'],['Replacement & Warranty','returns-warranty.html']] },
-    { title:'Made for', links:[['Shrimp farming','shrimp-farming.html'],['Fish farming','fish-farming.html']] }
+    { title:'Shop', links:[['Buy PH02','ph-meter.html#pricing'],['Bulk order',WA_BULK,true]] }
   ]},
   { id:'do', label:'DO Meter', href:'do-meter.html', page:'do-meter', groups:[
     { title:'Explore DO Meter', primary:true, links:[['Explore DO Meter','do-meter.html'],['Why dissolved oxygen','do-meter.html#why-do'],['Features','do-meter.html#do-features-title'],['Tech specs','do-meter.html#do-specs']] },
@@ -31,8 +31,6 @@ const MENU = [
     { title:'Calibrate & Care', primary:true, links:[['Calibration guide','how-to-calibrate.html'],['Care tips','how-to-calibrate.html#calibration-care-tips']] },
     { title:'Need help?', links:[['Chat on WhatsApp',WA_HELP,true],['Contact us','contact.html']] }
   ]},
-  { id:'shrimp', label:'Shrimp Farming', href:'shrimp-farming.html', page:'shrimp-farming' },
-  { id:'fish', label:'Fish Farming', href:'fish-farming.html', page:'fish-farming' },
   { id:'story', label:'Our Story', i18n:'nav.ourStory', href:'about.html', page:'about', groups:[
     { title:'About Tel-Aqua', primary:true, links:[['Our Story','about.html'],['Mission','about.html#mission'],['Why Tel-Aqua','why-telaqua.html']] }
   ]},
@@ -94,7 +92,6 @@ const FOOT_COLS = [
   [ ['Shop and Learn', [['Store','products.html'],['Tel-Aqua PH02','ph-meter.html'],['Tel-Aqua DO Meter','do-meter.html'],['Bulk order',WA_BULK]]] ],
   [ ['Use & Care', [['Calibrate & Care','how-to-calibrate.html'],['PH02 FAQs','ph-meter.html#faq'],['DO Meter FAQs','do-meter.html#faq'],['Why Tel-Aqua','why-telaqua.html']]],
     ['Account', [['Your account','account.html'],['Your bag','cart.html']]] ],
-  [ ['For Farmers', [['Shrimp farming','shrimp-farming.html'],['Fish farming','fish-farming.html']]] ],
   [ ['Support', [['Contact us','contact.html'],['Chat on WhatsApp',WA_HELP],['Replacement & Warranty','returns-warranty.html']]] ],
   [ ['About Tel-Aqua', [['Our Story','about.html'],['Mission','about.html#mission'],['Privacy Policy','privacy-policy.html']]] ]
 ];
@@ -147,7 +144,7 @@ ${links.map(([t, u]) => `          <li><a href="${u}"${ext(u)}>${esc(t)}</a></li
 <!-- GA-FOOTER:END -->`;
 
 /* ---------- Apply to pages ---------- */
-const SKIP = new Set(['why-telaqua.html']);
+const SKIP = new Set(['why-telaqua.html','shrimp-farming.html','fish-farming.html']);
 const pages = fs.readdirSync(root).filter(f => f.endsWith('.html') && !SKIP.has(f));
 const HEAD_TAGS = `<!-- GA-HEAD -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
