@@ -22,6 +22,16 @@
   const INVOICE_DOWNLOAD_URL = `${API_BASE}/api/payment/invoice-download`;
   const CHECKOUT_SCRIPT_SRC = 'https://checkout.razorpay.com/v1/checkout.js';
 
+  /* Development safeguard: set to true only when live payments are approved. */
+  const PAYMENTS_ENABLED = false;
+  const assertPaymentsEnabled = () => {
+    if(!PAYMENTS_ENABLED){
+      const error = new Error('Online payments are temporarily unavailable while the site is under development.');
+      error.code = 'PAYMENTS_DISABLED';
+      throw error;
+    }
+  };
+
   /** Tracks a single in-flight SDK load so we never inject the script twice. */
   let sdkLoadPromise = null;
 
@@ -83,6 +93,7 @@
    * Returns { order_id, amount, currency, key_id } on success.
    */
   const createOrder = async payload => {
+    assertPaymentsEnabled();
     const promoCode = String(payload.promo_code || payload.coupon_code || '').trim().toUpperCase();
     const phone = String(payload.phone || '').replace(/\D/g, '');
     /* Email is optional in the UI; API still requires a value — use a guest fallback. */
@@ -195,6 +206,7 @@
    * Refuses to return an order unless amount===100, currency===INR, is_test_order===true.
    */
   const createTestOrder = async payload => {
+    assertPaymentsEnabled();
     const body = {
       customer_name: String(payload.customer_name || '').trim(),
       phone: String(payload.phone || '').replace(/\D/g, ''),
